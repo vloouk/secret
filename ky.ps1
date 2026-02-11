@@ -1,4 +1,6 @@
 cls
+# Устанавливаем кодировку UTF-8 для корректного отображения кириллицы и смайликов
+[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 $host.UI.RawUI.WindowTitle = "SYSTEM ACCESS"
 
 function Type-Text($text, $color="White", $delay=40) {
