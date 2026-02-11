@@ -106,4 +106,54 @@ Write-Host $blackice -ForegroundColor DarkMagenta
 Start-Sleep 2
 
 # =========================
-# PHASE 6 — SECOND MI
+# PHASE 6 — SECOND MINI DATA LEAK
+# =========================
+
+Type-Text "WARNING: Partial data exfiltration in progress..." "Magenta"
+Percent-Load "Scanning sensitive directories..." 10
+
+Write-Host ""
+Write-Host "=== SECONDARY DATA LOG ===" -ForegroundColor DarkCyan
+
+for ($i=1; $i -le 15; $i++) {
+    Write-Host "[OK] /home/user/private_folder/file_$i.tmp" -ForegroundColor Yellow
+    Start-Sleep -Milliseconds 100
+}
+
+Write-Host "[OK] /var/log/system.log"
+Write-Host "[OK] /etc/passwd"
+Start-Sleep 2
+
+# =========================
+# DRAMATIC TWIST 😄
+# =========================
+
+cls
+Type-Text "Relax 😄" "Cyan" 60
+Start-Sleep 1
+Type-Text "Nothing was hacked." "Green"
+Start-Sleep 1
+Type-Text "No data was touched." "Green"
+Start-Sleep 1
+Type-Text "This was just an overdramatic birthday surprise." "Magenta"
+Start-Sleep 1
+
+Write-Host ""
+
+$heart = @"
+   ***     ***
+  *****   *****
+ ***************
+ ***************
+  *************
+    *********
+      *****
+        *
+"@
+
+Write-Host $heart -ForegroundColor Red
+Start-Sleep 1
+
+Type-Text "HAPPY BIRTHDAY ❤️" "Yellow" 80
+Start-Sleep 1
+Type-Text "Your files are safe. Your nerves are not 😄" "Cyan"
