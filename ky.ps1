@@ -1,5 +1,5 @@
 cls
-# UTF-8 для корректного отображения кириллицы и смайлов
+# UTF-8 for correct ASCII output
 [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 $host.UI.RawUI.WindowTitle = "SYSTEM ACCESS"
 
@@ -20,30 +20,30 @@ function Text-Bar($activity, $msDelay=40) {
     Write-Host ""
 }
 
-# Фейковое подключение
-Type-Text "Подключение к системе..." "Green"
+# Fake connection
+Type-Text "Connecting to the system..." "Green"
 Start-Sleep 1
-Text-Bar "Установка соединения"
+Text-Bar "Establishing secure connection"
 
-Type-Text "Доступ получен." "Red"
+Type-Text "Access granted." "Red"
 Start-Sleep 1
 
-Type-Text "Перехват данных пользователя..." "Yellow"
+Type-Text "Retrieving user data..." "Yellow"
 Start-Sleep 1
-Text-Bar "Передача данных" 30
+Text-Bar "Transferring data" 30
 
 cls
 
-# Резкий поворот 😄
-Type-Text "⚠ ВНИМАНИЕ ⚠" "Red" 60
+# Big twist 😄
+Type-Text "⚠ WARNING ⚠" "Red" 60
 Start-Sleep 1
-Type-Text "Это была проверка на доверчивость..." "Magenta"
+Type-Text "This was a test of your trust..." "Magenta"
 Start-Sleep 1
-Type-Text "Шучу-шучу 😄" "Cyan"
+Type-Text "Just kidding 😄" "Cyan"
 Start-Sleep 1
 Write-Host ""
 
-# Сердце
+# Heart
 $heart = @"
   ***     ***
  *****   *****
@@ -58,8 +58,8 @@ $heart = @"
 Write-Host $heart -ForegroundColor Red
 Start-Sleep 1
 
-Type-Text "На самом деле это сообщение для тебя ❤️" "Magenta" 60
+Type-Text "Actually, this message is for YOU ❤️" "Magenta" 60
 Start-Sleep 1
-Type-Text "С Днём Рождения!" "Yellow" 80
+Type-Text "HAPPY BIRTHDAY!" "Yellow" 80
 Start-Sleep 1
-Type-Text "Пусть в твоей жизни будет больше радости, тепла и улыбок 😊" "Cyan" 40
+Type-Text "Wishing you joy, warmth, and lots of smiles 😊" "Cyan" 40
