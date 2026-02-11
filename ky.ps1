@@ -2,10 +2,6 @@ cls
 [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 $host.UI.RawUI.WindowTitle = "SECURE REMOTE TERMINAL"
 
-# =========================
-# Функции печати текста и прогресса
-# =========================
-
 function Type-Text($text, $color="White", $delay=20) {
     foreach ($char in $text.ToCharArray()) {
         Write-Host -NoNewline $char -ForegroundColor $color
@@ -22,92 +18,69 @@ function Percent-Load($text, $speed=15) {
     Write-Host ""
 }
 
-# =========================
-# PHASE 1 — CONNECTION
-# =========================
-
-Type-Text "[+] Target IP located: 93.85.84.255" "Yellow"   # IP цели найден
+Type-Text "[+] Target IP located: 93.85.84.255" "Yellow"
 Start-Sleep 2
-Type-Text "[+] Port 57 OPEN" "Green"                         # Порт открыт
+Type-Text "[+] Port 57 OPEN" "Green"
 Start-Sleep 2
-Type-Text "Establishing SSH session...                                      [OK]" "Cyan"  # Устанавливаем SSH-сессию
-Percent-Load "Encrypting channel...                                      [OK]"                # Шифруем канал
+Type-Text "Establishing SSH session..." "Cyan"
+Percent-Load "Encrypting channel... "
 
-Type-Text "[+] Login: admin" "Yellow"                        # Логин admin
+Type-Text "[+] Login: admin" "Yellow"
 Start-Sleep 1
-Type-Text "[+] Access granted" "Green"                      # Доступ предоставлен
+Type-Text "[+] Access granted" "Green"
 Start-Sleep 2
-
-Write-Host ""                                               # Пустая строка
-Write-Host "admin@93.85.84.255:~#" -ForegroundColor Red    # Командная строка
-Start-Sleep 1
-
-# =========================
-# PHASE 2 — DATA EXFILTRATION
-# =========================
-
-Type-Text "Launching deep system scan..." "Magenta"        # Запуск глубокого сканирования
-Percent-Load "Extracting files..."                        # Извлекаем файлы
 
 Write-Host ""
-Write-Host "    DATA EXFILTRATION LOG    " -ForegroundColor DarkCyan  # Журнал утечки
+Write-Host "admin@93.85.84.255:~#" -ForegroundColor Red
+Start-Sleep 1
+
+Type-Text "Launching deep system scan..." "Magenta"
+Percent-Load "Extracting files..."
+
+Write-Host ""
+Write-Host "    DATA EXFILTRATION LOG    " -ForegroundColor DarkCyan
 
 for ($i=1; $i -le 50; $i++) {
-    Write-Host "[OK] /home/user/private_folder/file_$i.dat" -ForegroundColor Yellow  # Файлы
+    Write-Host "[OK] /home/user/private_folder/file_$i.dat" -ForegroundColor Yellow
     Start-Sleep -Milliseconds 80
 }
 
-Write-Host "[OK] /etc/shadow"                             # Системный файл
-Write-Host "[OK] /root/credentials.db"                    # Файл с данными
-Write-Host "[OK] /var/backups/full_system.img"            # Резервная копия
-Start-Sleep 2                                             # Немного ждем перед вторым окном
-
-# =========================
-# PHASE 3 — SECOND WINDOW CHAOS (AUTO CLOSE)
-# =========================
+Write-Host "[OK] /etc/shadow"
+Write-Host "[OK] /root/credentials.db"
+Write-Host "[OK] /var/backups/full_system.img"
+Start-Sleep 2
 
 $secondWindowScript = {
     $host.UI.RawUI.WindowTitle='ENCRYPTING DATA STREAM';
     $timer=[Diagnostics.Stopwatch]::StartNew();
-    while($timer.Elapsed.TotalSeconds -lt 2){               # Второе окно видно 2 секунды
+    while($timer.Elapsed.TotalSeconds -lt 2){
         Write-Host (Get-Random -Minimum 100000 -Maximum 999999) -ForegroundColor Green;
         Start-Sleep -Milliseconds 5;
     }
 }
 
-# Асинхронный запуск второго окна, основной поток продолжает печатать
 Start-Process powershell -ArgumentList ("-Command & { & $($secondWindowScript) }")
-
-# Меньшая задержка после закрытия второго окна (чтобы текст продолжался быстрее)
 Start-Sleep 1.5
 
-# =========================
-# PHASE 4 — PANIC SCREEN
-# =========================
-
 cls
-Type-Text "!!! CRITICAL SECURITY FAILURE !!!" "Red" 40      # Критическая ошибка безопасности
+Type-Text "!!! CRITICAL SECURITY FAILURE !!!" "Red" 40
 Start-Sleep 1
-Type-Text "Firewall bypassed." "Red"                        # Брандмауэр обойден
+Type-Text "Firewall bypassed." "Red"
 Start-Sleep 1
-Type-Text "Remote backup completed." "Red"                 # Резервное копирование завершено
+Type-Text "Remote backup completed." "Red"
 Start-Sleep 1
-Type-Text "System lockdown initiated..." "DarkRed" 60      # Система заблокирована
+Type-Text "System lockdown initiated..." "DarkRed" 60
 Start-Sleep 3
 
 cls
 
-# =========================
-# DRAMATIC TWIST 😄
-# =========================
-
-Type-Text "Relax 😄" "Cyan" 60                                # Расслабься
+Type-Text "Relax 😄" "Cyan" 60
 Start-Sleep 1
-Type-Text "Nothing was hacked." "Green"                      # Ничего не взломано
+Type-Text "Nothing was hacked." "Green"
 Start-Sleep 1
-Type-Text "No data was touched." "Green"                     # Данные не тронуты
+Type-Text "No data was touched." "Green"
 Start-Sleep 1
-Type-Text "This was just an overdramatic birthday surprise." "Magenta"  # Шутка-поздравление
+Type-Text "This was just an overdramatic birthday surprise." "Magenta"
 Start-Sleep 1
 
 Write-Host ""
@@ -126,6 +99,6 @@ $heart = @"
 Write-Host $heart -ForegroundColor Red
 Start-Sleep 1
 
-Type-Text "HAPPY BIRTHDAY ❤️" "Yellow" 80                      # С Днём Рождения
+Type-Text "HAPPY BIRTHDAY ❤️" "Yellow" 80
 Start-Sleep 1
-Type-Text "Your files are safe. Your nerves are not 😄" "Cyan"  # Файлы в безопасности, нервы — нет
+Type-Text "Your files are safe. Your nerves are not 😄" "Cyan"
