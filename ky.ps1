@@ -77,7 +77,7 @@ Start-Sleep 1
 Type-Text "Firewall bypassed." "Red"
 Start-Sleep 1
 Type-Text "Remote backup completed." "Red"
-Start-Sleep 1
+Start-Sleep 1.5
 Type-Text "System lockdown initiated..." "DarkRed" 40
 Start-Sleep 1
 Type-Text "Malicious program 'blackice.exe' is launching..." "DarkRed" 50
