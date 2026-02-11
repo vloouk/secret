@@ -18,6 +18,10 @@ function Percent-Load($text, $speed=15) {
     Write-Host ""
 }
 
+# =========================
+# PHASE 1 — CONNECTION
+# =========================
+
 Type-Text "[+] Target IP located: 93.85.84.255" "Yellow"
 Start-Sleep 2
 Type-Text "[+] Port 57 OPEN" "Green"
@@ -33,6 +37,10 @@ Start-Sleep 2
 Write-Host ""
 Write-Host "admin@93.85.84.255:~#" -ForegroundColor Red
 Start-Sleep 1
+
+# =========================
+# PHASE 2 — DATA EXFILTRATION
+# =========================
 
 Type-Text "Launching deep system scan..." "Magenta"
 Percent-Load "Extracting files..."
@@ -50,6 +58,10 @@ Write-Host "[OK] /root/credentials.db"
 Write-Host "[OK] /var/backups/full_system.img"
 Start-Sleep 2
 
+# =========================
+# PHASE 3 — SECOND WINDOW CHAOS
+# =========================
+
 $secondWindowScript = {
     $host.UI.RawUI.WindowTitle='ENCRYPTING DATA STREAM';
     $timer=[Diagnostics.Stopwatch]::StartNew();
@@ -62,43 +74,36 @@ $secondWindowScript = {
 Start-Process powershell -ArgumentList ("-Command & { & $($secondWindowScript) }")
 Start-Sleep 1.5
 
+# =========================
+# PHASE 4 — PANIC SCREEN
+# =========================
+
 cls
 Type-Text "!!! CRITICAL SECURITY FAILURE !!!" "Red" 40
-Start-Sleep 1
+Start-Sleep 0.5
 Type-Text "Firewall bypassed." "Red"
-Start-Sleep 1
+Start-Sleep 0.5
 Type-Text "Remote backup completed." "Red"
-Start-Sleep 1
-Type-Text "System lockdown initiated..." "DarkRed" 60
-Start-Sleep 3
+Start-Sleep 0.5
+Type-Text "System lockdown initiated..." "DarkRed" 40
+Start-Sleep 0.5
+Type-Text "Malicious program 'BLACKICE.EXE' is launching..." "DarkRed" 50
+Start-Sleep 2
 
-cls
+# =========================
+# PHASE 5 — SCARY PROGRAM ASCII
+# =========================
 
-Type-Text "Relax 😄" "Cyan" 60
-Start-Sleep 1
-Type-Text "Nothing was hacked." "Green"
-Start-Sleep 1
-Type-Text "No data was touched." "Green"
-Start-Sleep 1
-Type-Text "This was just an overdramatic birthday surprise." "Magenta"
-Start-Sleep 1
-
-Write-Host ""
-
-$heart = @"
-   ***     ***
-  *****   *****
- ***************
- ***************
-  *************
-    *********
-      *****
-        *
+$blackice = @"
+  ____  _            _    ___ ___ _____ ___ 
+ | __ )| | ___   ___| | _|_ _|_ _|_   _/ _ \
+ |  _ \| |/ _ \ / __| |/ /| | | |  | || | | |
+ | |_) | | (_) | (__|   < | | | |  | || |_| |
+ |____/|_|\___/ \___|_|\_\___|___| |_| \___/
 "@
 
-Write-Host $heart -ForegroundColor Red
-Start-Sleep 1
+Write-Host $blackice -ForegroundColor DarkMagenta
+Start-Sleep 2
 
-Type-Text "HAPPY BIRTHDAY ❤️" "Yellow" 80
-Start-Sleep 1
-Type-Text "Your files are safe. Your nerves are not 😄" "Cyan"
+# =========================
+# PHASE 6 — SECOND MI
