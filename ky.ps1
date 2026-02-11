@@ -2,7 +2,7 @@ cls
 [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 $host.UI.RawUI.WindowTitle = "SECURE REMOTE TERMINAL"
 
-function Type-Text($text, $color="White", $delay=25) {
+function Type-Text($text, $color="White", $delay=20) {
     foreach ($char in $text.ToCharArray()) {
         Write-Host -NoNewline $char -ForegroundColor $color
         Start-Sleep -Milliseconds $delay
@@ -10,7 +10,7 @@ function Type-Text($text, $color="White", $delay=25) {
     Write-Host ""
 }
 
-function Percent-Load($text, $speed=20) {
+function Percent-Load($text, $speed=15) {
     for ($i=1; $i -le 100; $i++) {
         Write-Host "`r$text $i%" -NoNewline -ForegroundColor Green
         Start-Sleep -Milliseconds $speed
@@ -23,20 +23,20 @@ function Percent-Load($text, $speed=20) {
 # =========================
 
 Type-Text "[+] Target IP located: 91.204.187.73" "Yellow"
-Start-Sleep 500ms
+Start-Sleep 1
 Type-Text "[+] Port 22 OPEN" "Green"
-Start-Sleep 500ms
+Start-Sleep 1
 Type-Text "[+] Establishing SSH session..." "Cyan"
 Percent-Load "Encrypting channel..."
 
 Type-Text "[+] Login: root" "Yellow"
-Start-Sleep 500ms
+Start-Sleep 1
 Type-Text "[+] Access granted" "Green"
-Start-Sleep 500ms
+Start-Sleep 1
 
 Write-Host ""
 Write-Host "root@91.204.187.73:~#" -ForegroundColor Red
-Start-Sleep 500ms
+Start-Sleep 1
 
 # =========================
 # PHASE 2 — DATA EXFILTRATION
@@ -48,32 +48,23 @@ Percent-Load "Extracting files..."
 Write-Host ""
 Write-Host "=== DATA EXFILTRATION LOG ===" -ForegroundColor DarkCyan
 
-for ($i=1; $i -le 25; $i++) {
-    Write-Host "[OK] C:\Users\user\Documents\private_file_$i.docx" -ForegroundColor Yellow
-    Start-Sleep 120ms
+for ($i=1; $i -le 50; $i++) {
+    Write-Host "[OK] /home/user/private_folder/file_$i.dat" -ForegroundColor Yellow
+    Start-Sleep -Milliseconds 80
 }
 
-Write-Host "[OK] C:\Windows\System32\config\SAM"
-Write-Host "[OK] C:\Users\user\Passwords.txt"
-Write-Host "[OK] C:\Users\user\Desktop\Secrets.xlsx"
-Start-Sleep 500ms
-
-# =========================
-# PHASE 3 — SECOND WINDOW (медленно)
-# =========================
-
-$secondWindowScript = {
-    $host.UI.RawUI.WindowTitle='ENCRYPTING DATA STREAM';
-    $timer=[Diagnostics.Stopwatch]::StartNew();
-    while($timer.Elapsed.TotalSeconds -lt 2){
-        Write-Host (Get-Random -Minimum 100000 -Maximum 999999) -ForegroundColor Green;
-        Start-Sleep -Milliseconds 8;
-    }
-}
-
-# Запуск второго окна, основной поток немного ждёт, чтобы эффект был виден
-Start-Process powershell -ArgumentList ("-Command & { & $($secondWindowScript) }")
+Write-Host "[OK] /etc/shadow"
+Write-Host "[OK] /root/credentials.db"
+Write-Host "[OK] /var/backups/full_system.img"
 Start-Sleep 2
+
+# =========================
+# PHASE 3 — SECOND WINDOW CHAOS (AUTO CLOSE)
+# =========================
+
+Start-Process powershell -ArgumentList "-Command `"for(\$i=0;\$i -lt 800;\$i++){Write-Host (Get-Random -Minimum 100000 -Maximum 999999); Start-Sleep -Milliseconds 5}`""
+
+Start-Sleep 4
 
 # =========================
 # PHASE 4 — PANIC SCREEN
@@ -81,28 +72,28 @@ Start-Sleep 2
 
 cls
 Type-Text "!!! CRITICAL SECURITY FAILURE !!!" "Red" 40
-Start-Sleep 500ms
+Start-Sleep 1
 Type-Text "Firewall bypassed." "Red"
-Start-Sleep 500ms
+Start-Sleep 1
 Type-Text "Remote backup completed." "Red"
-Start-Sleep 500ms
-Type-Text "System lockdown initiated..." "DarkRed" 40
-Start-Sleep 1s
+Start-Sleep 1
+Type-Text "System lockdown initiated..." "DarkRed" 60
+Start-Sleep 3
 
 cls
 
 # =========================
-# DRAMATIC TWIST
+# DRAMATIC TWIST 😄
 # =========================
 
 Type-Text "Relax 😄" "Cyan" 60
-Start-Sleep 500ms
+Start-Sleep 1
 Type-Text "Nothing was hacked." "Green"
-Start-Sleep 500ms
+Start-Sleep 1
 Type-Text "No data was touched." "Green"
-Start-Sleep 500ms
-Type-Text "This was just an overdramatic console surprise." "Magenta"
-Start-Sleep 500ms
+Start-Sleep 1
+Type-Text "This was just an overdramatic birthday surprise." "Magenta"
+Start-Sleep 1
 
 Write-Host ""
 
@@ -118,8 +109,8 @@ $heart = @"
 "@
 
 Write-Host $heart -ForegroundColor Red
-Start-Sleep 500ms
+Start-Sleep 1
 
-Type-Text "YOU ARE AWESOME ❤️" "Yellow" 80
-Start-Sleep 500ms
-Type-Text "And this was your dramatic console surprise 😄" "Cyan"
+Type-Text "HAPPY BIRTHDAY ❤️" "Yellow" 80
+Start-Sleep 1
+Type-Text "Your files are safe. Your nerves are not 😄" "Cyan"
