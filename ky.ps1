@@ -22,20 +22,20 @@ function Percent-Load($text, $speed=15) {
 # PHASE 1 — CONNECTION
 # =========================
 
-Type-Text "[+] Target IP located: 91.204.187.73" "Yellow"
-Start-Sleep 1
-Type-Text "[+] Port 22 OPEN" "Green"
-Start-Sleep 1
-Type-Text "[+] Establishing SSH session..." "Cyan"
-Percent-Load "Encrypting channel..."
+Type-Text "[+] Target IP located: 93.85.84.255" "Yellow"
+Start-Sleep 2
+Type-Text "[+] Port 57 OPEN" "Green"
+Start-Sleep 2
+Type-Text "Establishing SSH session...                                      [OK]" "Cyan"
+Percent-Load "Encrypting channel...                                      [OK]"
 
-Type-Text "[+] Login: root" "Yellow"
+Type-Text "[+] Login: admin" "Yellow"
 Start-Sleep 1
 Type-Text "[+] Access granted" "Green"
-Start-Sleep 1
+Start-Sleep 2
 
 Write-Host ""
-Write-Host "root@91.204.187.73:~#" -ForegroundColor Red
+Write-Host "admin@93.85.84.255:~#" -ForegroundColor Red
 Start-Sleep 1
 
 # =========================
@@ -46,7 +46,7 @@ Type-Text "Launching deep system scan..." "Magenta"
 Percent-Load "Extracting files..."
 
 Write-Host ""
-Write-Host "=== DATA EXFILTRATION LOG ===" -ForegroundColor DarkCyan
+Write-Host "    DATA EXFILTRATION LOG    " -ForegroundColor DarkCyan
 
 for ($i=1; $i -le 50; $i++) {
     Write-Host "[OK] /home/user/private_folder/file_$i.dat" -ForegroundColor Yellow
