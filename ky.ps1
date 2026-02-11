@@ -49,11 +49,11 @@ for ($i=1; $i -le 50; $i++) {
     Start-Sleep -Milliseconds 80
 }
 
-Start-Sleep 0.5
+Start-Sleep 1
 Write-Host "[OK] /etc/shadow"
-Start-Sleep 0.5
+Start-Sleep 1
 Write-Host "[OK] /root/credentials.db"
-Start-Sleep 0.5
+Start-Sleep 1
 Write-Host "[OK] /var/backups/full_system.img"
 Start-Sleep 1.5
 
@@ -73,11 +73,11 @@ Start-Sleep 1.5
 # PHASE 4 — PANIC SCREEN
 cls
 Type-Text "!!! CRITICAL SECURITY FAILURE !!!" "Red" 40
-Start-Sleep 0.5
+Start-Sleep 1
 Type-Text "Firewall bypassed." "Red"
 Start-Sleep 1
 Type-Text "Remote backup completed." "Red"
-Start-Sleep 0.5
+Start-Sleep 1
 Type-Text "System lockdown initiated..." "DarkRed" 40
 Start-Sleep 1
 Type-Text "Malicious program 'blackice.exe' is launching..." "DarkRed" 50
