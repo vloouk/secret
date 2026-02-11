@@ -40,7 +40,9 @@ Type-Text "Launching deep system scan..." "Magenta"
 Percent-Load "Extracting files..."
 
 Write-Host ""
+Start-Sleep 1
 Write-Host "    DATA EXFILTRATION LOG    " -ForegroundColor DarkCyan
+Start-Sleep 1
 
 for ($i=1; $i -le 50; $i++) {
     Write-Host "[OK] /home/user/private_folder/file_$i.dat" -ForegroundColor Yellow
