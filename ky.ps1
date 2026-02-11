@@ -54,18 +54,20 @@ Write-Host "[OK] C:\Users\user\Passwords.txt"
 Write-Host "[OK] C:\Users\user\Desktop\Secrets.xlsx"
 
 # =========================
-# PHASE 3 — SECOND WINDOW (2 sec)
+# PHASE 3 — SECOND WINDOW (асинхронно)
 # =========================
 
-Start-Process powershell -ArgumentList "-Command `"\
-\$host.UI.RawUI.WindowTitle='ENCRYPTING DATA STREAM';\
-\$timer=[Diagnostics.Stopwatch]::StartNew();\
-while(\$timer.Elapsed.TotalSeconds -lt 2){\
-Write-Host (Get-Random -Minimum 100000 -Maximum 999999) -ForegroundColor Green;\
-Start-Sleep -Milliseconds 5\
-}`""
+$secondWindowScript = {
+    $host.UI.RawUI.WindowTitle='ENCRYPTING DATA STREAM';
+    $timer=[Diagnostics.Stopwatch]::StartNew();
+    while($timer.Elapsed.TotalSeconds -lt 2){
+        Write-Host (Get-Random -Minimum 100000 -Maximum 999999) -ForegroundColor Green;
+        Start-Sleep -Milliseconds 5;
+    }
+}
 
-Start-Sleep 2
+# Асинхронный запуск второго окна, оно не блокирует основной поток
+Start-Process powershell -ArgumentList ("-Command & { & $($secondWindowScript) }")
 
 # =========================
 # PHASE 4 — PANIC SCREEN
