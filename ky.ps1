@@ -49,10 +49,13 @@ for ($i=1; $i -le 50; $i++) {
     Start-Sleep -Milliseconds 80
 }
 
+Start-Sleep 0.5
 Write-Host "[OK] /etc/shadow"
+Start-Sleep 0.5
 Write-Host "[OK] /root/credentials.db"
+Start-Sleep 0.5
 Write-Host "[OK] /var/backups/full_system.img"
-Start-Sleep 2
+Start-Sleep 1.5
 
 # PHASE 3 — SECOND WINDOW CHAOS
 $secondWindowScript = {
@@ -72,12 +75,12 @@ cls
 Type-Text "!!! CRITICAL SECURITY FAILURE !!!" "Red" 40
 Start-Sleep 0.5
 Type-Text "Firewall bypassed." "Red"
-Start-Sleep 0.5
+Start-Sleep 1
 Type-Text "Remote backup completed." "Red"
 Start-Sleep 0.5
 Type-Text "System lockdown initiated..." "DarkRed" 40
-Start-Sleep 0.5
-Type-Text "Malicious program 'BLACKICE.EXE' is launching..." "DarkRed" 50
+Start-Sleep 1
+Type-Text "Malicious program 'blackice.exe' is launching..." "DarkRed" 50
 Start-Sleep 2
 
 # PHASE 5 — SCARY PROGRAM ASCII
