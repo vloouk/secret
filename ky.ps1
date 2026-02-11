@@ -62,9 +62,9 @@ Start-Sleep 2
 # PHASE 3 — SECOND WINDOW CHAOS (AUTO CLOSE)
 # =========================
 
-Start-Process powershell -ArgumentList "-Command `"for(\$i=0;\$i -lt 800;\$i++){Write-Host (Get-Random -Minimum 100000 -Maximum 999999); Start-Sleep -Milliseconds 5}`""
+Start-Process powershell -ArgumentList "-Command `"for(\$i=0;\$i -lt 800;\$i++){Write-Host (Get-Random -Minimum 100000 -Maximum 999999); Start-Sleep 2}`""
 
-Start-Sleep 4
+Start-Sleep 2
 
 # =========================
 # PHASE 4 — PANIC SCREEN
