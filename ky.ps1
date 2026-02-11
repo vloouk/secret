@@ -49,22 +49,27 @@ Write-Host ""
 Write-Host "=== DATA EXFILTRATION LOG ===" -ForegroundColor DarkCyan
 
 for ($i=1; $i -le 50; $i++) {
-    Write-Host "[OK] /home/user/private_folder/file_$i.dat" -ForegroundColor Yellow
-    Start-Sleep -Milliseconds 80
+    Write-Host "[OK] C:\Users\user\Documents\private_file_$i.docx" -ForegroundColor Yellow
+    Start-Sleep -Milliseconds 70
 }
 
-Write-Host "[OK] /etc/shadow"
-Write-Host "[OK] /root/credentials.db"
-Write-Host "[OK] /var/backups/full_system.img"
+Write-Host "[OK] C:\Windows\System32\config\SAM"
+Write-Host "[OK] C:\Users\user\Passwords.txt"
+Write-Host "[OK] C:\Users\user\Desktop\Secrets.xlsx"
 Start-Sleep 2
 
 # =========================
-# PHASE 3 — SECOND WINDOW CHAOS (AUTO CLOSE)
+# PHASE 3 — SECOND WINDOW CHAOS
 # =========================
 
-Start-Process powershell -ArgumentList "-Command `"for(\$i=0;\$i -lt 800;\$i++){Write-Host (Get-Random -Minimum 100000 -Maximum 999999); Start-Sleep -Milliseconds 5}`""
+Start-Process powershell -ArgumentList "-Command `"\
+\$host.UI.RawUI.WindowTitle='ENCRYPTING DATA STREAM';\
+for(\$i=0;\$i -lt 2000;\$i++){\
+Write-Host (Get-Random -Minimum 100000 -Maximum 999999) -ForegroundColor Green;\
+Start-Sleep -Milliseconds 8\
+}`""
 
-Start-Sleep 4
+Start-Sleep 8
 
 # =========================
 # PHASE 4 — PANIC SCREEN
@@ -92,7 +97,7 @@ Type-Text "Nothing was hacked." "Green"
 Start-Sleep 1
 Type-Text "No data was touched." "Green"
 Start-Sleep 1
-Type-Text "This was just an overdramatic birthday surprise." "Magenta"
+Type-Text "This was just an overdramatic surprise." "Magenta"
 Start-Sleep 1
 
 Write-Host ""
@@ -111,6 +116,6 @@ $heart = @"
 Write-Host $heart -ForegroundColor Red
 Start-Sleep 1
 
-Type-Text "HAPPY BIRTHDAY ❤️" "Yellow" 80
+Type-Text "YOU ARE AWESOME ❤️" "Yellow" 80
 Start-Sleep 1
-Type-Text "Your files are safe. Your nerves are not 😄" "Cyan"
+Type-Text "And this was your dramatic console surprise 😄" "Cyan"
