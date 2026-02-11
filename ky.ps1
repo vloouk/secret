@@ -2,7 +2,7 @@ cls
 [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 $host.UI.RawUI.WindowTitle = "SECURE REMOTE TERMINAL"
 
-function Type-Text($text, $color="White", $delay=20) {
+function Type-Text($text, $color="White", $delay=15) {
     foreach ($char in $text.ToCharArray()) {
         Write-Host -NoNewline $char -ForegroundColor $color
         Start-Sleep -Milliseconds $delay
@@ -10,7 +10,7 @@ function Type-Text($text, $color="White", $delay=20) {
     Write-Host ""
 }
 
-function Percent-Load($text, $speed=15) {
+function Percent-Load($text, $speed=10) {
     for ($i=1; $i -le 100; $i++) {
         Write-Host "`r$text $i%" -NoNewline -ForegroundColor Green
         Start-Sleep -Milliseconds $speed
@@ -23,20 +23,16 @@ function Percent-Load($text, $speed=15) {
 # =========================
 
 Type-Text "[+] Target IP located: 91.204.187.73" "Yellow"
-Start-Sleep 1
 Type-Text "[+] Port 22 OPEN" "Green"
-Start-Sleep 1
 Type-Text "[+] Establishing SSH session..." "Cyan"
 Percent-Load "Encrypting channel..."
 
 Type-Text "[+] Login: root" "Yellow"
-Start-Sleep 1
 Type-Text "[+] Access granted" "Green"
-Start-Sleep 1
 
 Write-Host ""
 Write-Host "root@91.204.187.73:~#" -ForegroundColor Red
-Start-Sleep 1
+Start-Sleep -Milliseconds 500
 
 # =========================
 # PHASE 2 — DATA EXFILTRATION
@@ -48,57 +44,50 @@ Percent-Load "Extracting files..."
 Write-Host ""
 Write-Host "=== DATA EXFILTRATION LOG ===" -ForegroundColor DarkCyan
 
-for ($i=1; $i -le 50; $i++) {
+for ($i=1; $i -le 25; $i++) {
     Write-Host "[OK] C:\Users\user\Documents\private_file_$i.docx" -ForegroundColor Yellow
-    Start-Sleep -Milliseconds 70
+    Start-Sleep -Milliseconds 40
 }
 
 Write-Host "[OK] C:\Windows\System32\config\SAM"
 Write-Host "[OK] C:\Users\user\Passwords.txt"
 Write-Host "[OK] C:\Users\user\Desktop\Secrets.xlsx"
-Start-Sleep 2
 
 # =========================
-# PHASE 3 — SECOND WINDOW CHAOS
+# PHASE 3 — SECOND WINDOW (2 sec)
 # =========================
 
 Start-Process powershell -ArgumentList "-Command `"\
 \$host.UI.RawUI.WindowTitle='ENCRYPTING DATA STREAM';\
-for(\$i=0;\$i -lt 2000;\$i++){\
+\$timer=[Diagnostics.Stopwatch]::StartNew();\
+while(\$timer.Elapsed.TotalSeconds -lt 2){\
 Write-Host (Get-Random -Minimum 100000 -Maximum 999999) -ForegroundColor Green;\
-Start-Sleep -Milliseconds 8\
+Start-Sleep -Milliseconds 5\
 }`""
 
-Start-Sleep 8
+Start-Sleep 2
 
 # =========================
 # PHASE 4 — PANIC SCREEN
 # =========================
 
 cls
-Type-Text "!!! CRITICAL SECURITY FAILURE !!!" "Red" 40
-Start-Sleep 1
+Type-Text "!!! CRITICAL SECURITY FAILURE !!!" "Red" 25
 Type-Text "Firewall bypassed." "Red"
-Start-Sleep 1
 Type-Text "Remote backup completed." "Red"
-Start-Sleep 1
-Type-Text "System lockdown initiated..." "DarkRed" 60
-Start-Sleep 3
+Type-Text "System lockdown initiated..." "DarkRed" 40
 
+Start-Sleep 2
 cls
 
 # =========================
-# DRAMATIC TWIST 😄
+# DRAMATIC TWIST
 # =========================
 
-Type-Text "Relax 😄" "Cyan" 60
-Start-Sleep 1
+Type-Text "Relax 😄" "Cyan" 40
 Type-Text "Nothing was hacked." "Green"
-Start-Sleep 1
 Type-Text "No data was touched." "Green"
-Start-Sleep 1
-Type-Text "This was just an overdramatic surprise." "Magenta"
-Start-Sleep 1
+Type-Text "This was just an overdramatic console surprise." "Magenta"
 
 Write-Host ""
 
@@ -114,8 +103,6 @@ $heart = @"
 "@
 
 Write-Host $heart -ForegroundColor Red
-Start-Sleep 1
 
-Type-Text "YOU ARE AWESOME ❤️" "Yellow" 80
-Start-Sleep 1
+Type-Text "YOU ARE AWESOME ❤️" "Yellow" 60
 Type-Text "And this was your dramatic console surprise 😄" "Cyan"
