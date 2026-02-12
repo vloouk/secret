@@ -521,7 +521,7 @@ Start-Sleep 1.2
 $friendnam = "Ksusha"
 
 Write-Host ""
-Type-Text "HAPPY VALENTINE'S DAY, $friendnam! ❤️" "Yellow" 80
+Type-Text "HAPPY VALENTINE'S DAY, $friendnam!" "Yellow" 80
 Start-Sleep 1
 Type-Text "Your files are safe. Your nerves are not :)" "Cyan"
 Write-Host ""
