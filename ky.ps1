@@ -70,33 +70,38 @@ $secondWindowScript = {
 Start-Process powershell -ArgumentList ("-NoProfile -WindowStyle Normal -Command & { & $($secondWindowScript) }")
 Start-Sleep 1.5
 
-# PHASE 4 — PANIC SCREEN
+# PHASE 4 — SYSTEM TRANSITION (ФУТУРИСТИЧНЫЙ ВАРИАНТ)
 cls
-Type-Text "!!! CRITICAL SECURITY FAILURE !!!" "Red" 40
+Type-Text "System entering advanced diagnostic mode..." "Cyan" 35
 Start-Sleep 1
-Type-Text "Firewall bypassed." "Red"
+Type-Text "Loading encrypted visualization module..." "Gray"
+Percent-Load "Compiling interface..." 12
+
 Start-Sleep 1
-Type-Text "Remote backup completed." "Red"
-Start-Sleep 1.5
-Type-Text "System lockdown initiated..." "DarkRed" 40
+Type-Text "Module loaded successfully." "Green"
 Start-Sleep 1
-Type-Text "Malicious program 'blackice.exe' is launching..." "DarkRed" 50
+Type-Text "Opening BLACKICE console..." "Magenta" 40
 Start-Sleep 2
 
-# PHASE 5 — SCARY PROGRAM ASCII
+# PHASE 5 — BLACKICE INTERFACE
 $blackice = @"
-  ____  _            _    ___ ___ _____ ___ 
- | __ )| | ___   ___| | _|_ _|_   _/ _ \
- |  _ \| |/ _ \ / __| |/ /| | | |  | || | | |
- | |_) | | (_) | (__|   < | | | |  | || |_| |
- |____/|_|\___/ \___|_|\_\___|___| |_| \___/
+ ██████╗ ██╗      █████╗  ██████╗██╗  ██╗██╗ ██████╗███████╗
+ ██╔══██╗██║     ██╔══██╗██╔════╝██║ ██╔╝██║██╔════╝██╔════╝
+ ██████╔╝██║     ███████║██║     █████╔╝ ██║██║     █████╗
+ ██╔══██╗██║     ██╔══██║██║     ██╔═██╗ ██║██║     ██╔══╝
+ ██████╔╝███████╗██║  ██║╚██████╗██║  ██╗██║╚██████╗███████╗
+ ╚═════╝ ╚══════╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝╚═╝ ╚═════╝╚══════╝
 "@
+
 Write-Host $blackice -ForegroundColor DarkMagenta
 Start-Sleep 2
 
+Type-Text "BLACKICE INTERFACE ACTIVE" "DarkCyan" 40
+Start-Sleep 2
+
 # PHASE 6 — SECOND MINI DATA LEAK
-Type-Text "WARNING: Partial data exfiltration in progress..." "Magenta"
-Percent-Load "Scanning sensitive directories..." 10
+Type-Text "Running extended diagnostics..." "Magenta"
+Percent-Load "Scanning system layers..." 10
 
 Write-Host ""
 Write-Host "=== SECONDARY DATA LOG ===" -ForegroundColor DarkCyan
