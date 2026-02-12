@@ -36,148 +36,168 @@ Write-Host ""
 Write-Host "admin@93.85.84.255:~#" -ForegroundColor Red
 Start-Sleep 1
 
-# PHASE 2 — DATA EXFILTRATION
+# PHASE 2 — DATA EXFILTRATION (ПРОСТО КАК ТЫ ПРОСИЛ)
 Type-Text "Launching deep system scan..." "Magenta"
 Percent-Load "Extracting files..." 12
 
 Write-Host ""
 Start-Sleep 1
 Write-Host "    DATA EXFILTRATION LOG    " -ForegroundColor DarkCyan
-Write-Host "    TARGET: MULTI-SYSTEM      " -ForegroundColor DarkCyan
-Start-Sleep 1.5
+Start-Sleep 1
 
 # ============================================
-# БОЛЬШОЙ СПИСОК — 70+ ФАЙЛОВ
+# ТУПО СПИСОК СТРОК
 # ============================================
 
-$files = @(
+Write-Host "[OK] C:\Users\user\AppData\Local\.IdentityService\master.key" -ForegroundColor Green
+Start-Sleep -Milliseconds 80
+Write-Host "[OK] C:\Users\user\AppData\Local\Comms\Unistore\data.edb" -ForegroundColor Green
+Start-Sleep -Milliseconds 80
+Write-Host "[WARNING] C:\Users\user\AppData\Local\ConnectedDevicesPlatform\L.user.cdp" -ForegroundColor Yellow
+Start-Sleep -Milliseconds 80
+Write-Host "[OK] C:\Users\user\AppData\Local\D3DSCache\fe8d97be6d92aa78\cache.bin" -ForegroundColor Green
+Start-Sleep -Milliseconds 80
+Write-Host "[OK] C:\Users\user\AppData\Local\D3DSCache\27f9580d534520b0\shader.cache" -ForegroundColor Green
+Start-Sleep -Milliseconds 80
+Write-Host "[OK] C:\Users\user\AppData\Local\Google\Chrome\User Data\Default\Cookies" -ForegroundColor Green
+Start-Sleep -Milliseconds 80
+Write-Host "[ERROR] C:\Users\user\AppData\Local\Google\Chrome\User Data\Default\Login Data (protected)" -ForegroundColor Red
+Start-Sleep -Milliseconds 80
+Write-Host "[OK] C:\Users\user\AppData\Local\Microsoft\Edge\User Data\Default\History" -ForegroundColor Green
+Start-Sleep -Milliseconds 80
+Write-Host "[WARNING] C:\Users\user\AppData\Local\Microsoft\Windows\UsrClass.dat" -ForegroundColor Yellow
+Start-Sleep -Milliseconds 80
+Write-Host "[OK] C:\Users\user\AppData\Local\JetBrains\IntelliJIdea\eval.key" -ForegroundColor Green
+Start-Sleep -Milliseconds 80
+Write-Host "[OK] C:\Users\user\AppData\Local\Packages\Microsoft.WindowsStore_8wekyb3d8bbwe\AC\Token.dat" -ForegroundColor Green
+Start-Sleep -Milliseconds 80
+Write-Host "[OK] C:\Users\user\AppData\Local\Adobe\CameraRaw\CameraProfiles\profile.icc" -ForegroundColor Green
+Start-Sleep -Milliseconds 80
+Write-Host "[OK] C:\Users\user\AppData\Local\ProtonVPN\config.ovpn" -ForegroundColor Green
+Start-Sleep -Milliseconds 80
+Write-Host "[OK] C:\Users\user\AppData\Local\NVIDIA Corporation\GfeSDK\GFE.log" -ForegroundColor Green
+Start-Sleep -Milliseconds 80
+Write-Host "[OK] C:\Users\user\AppData\Local\EpicGamesLauncher\Saved\Config\Windows\GameUserSettings.ini" -ForegroundColor Green
+Start-Sleep -Milliseconds 80
+Write-Host "[WARNING] C:\Users\user\AppData\Local\Bluestacks\bluestacks.conf" -ForegroundColor Yellow
+Start-Sleep -Milliseconds 80
+Write-Host "[OK] C:\Users\user\AppData\Local\Programs\Python\Python310\Lib\site-packages\pip\__main__.py" -ForegroundColor Green
+Start-Sleep -Milliseconds 80
+Write-Host "[OK] C:\Users\user\MediaGet2\settings.db" -ForegroundColor Green
+Start-Sleep -Milliseconds 80
+Write-Host "[ERROR] C:\Users\user\AppData\LocalLow\Adobe\CRLogs\camera_raw.log (in use)" -ForegroundColor Red
+Start-Sleep -Milliseconds 80
+Write-Host "[OK] C:\Users\user\AppData\Local\ACD Systems\Catalogs\main.cat" -ForegroundColor Green
+Start-Sleep -Milliseconds 80
+Write-Host "[OK] C:\Users\user\AppData\Local\CrashDumps\chrome.exe.11888.dmp" -ForegroundColor Green
+Start-Sleep -Milliseconds 80
+Write-Host "[WARNING] C:\Users\user\AppData\Local\ConnectedDevicesPlatform\CDPGlobalSettings.cdp" -ForegroundColor Yellow
+Start-Sleep -Milliseconds 80
+Write-Host "[OK] /home/user/private_folder/credentials_backup.db" -ForegroundColor Green
+Start-Sleep -Milliseconds 80
+Write-Host "[OK] /home/user/private_folder/photos/vacation_2024.zip" -ForegroundColor Green
+Start-Sleep -Milliseconds 80
+Write-Host "[OK] /home/user/private_folder/wifi_passwords.txt" -ForegroundColor Green
+Start-Sleep -Milliseconds 80
+Write-Host "[WARNING] /home/user/private_folder/.env" -ForegroundColor Yellow
+Start-Sleep -Milliseconds 80
+Write-Host "[OK] /home/user/private_folder/ssh/id_rsa" -ForegroundColor Green
+Start-Sleep -Milliseconds 80
+Write-Host "[OK] /home/user/private_folder/ssh/id_rsa.pub" -ForegroundColor Green
+Start-Sleep -Milliseconds 80
+Write-Host "[ERROR] /home/user/private_folder/gpg/private.key (encrypted)" -ForegroundColor Red
+Start-Sleep -Milliseconds 80
+Write-Host "[OK] /home/user/Documents/bank_statement_2024.pdf" -ForegroundColor Green
+Start-Sleep -Milliseconds 80
+Write-Host "[OK] /home/user/Documents/passport_scan.jpg" -ForegroundColor Green
+Start-Sleep -Milliseconds 80
+Write-Host "[WARNING] /home/user/.bash_history" -ForegroundColor Yellow
+Start-Sleep -Milliseconds 80
+Write-Host "[OK] /home/user/.ssh/known_hosts" -ForegroundColor Green
+Start-Sleep -Milliseconds 80
+Write-Host "[OK] /home/user/.config/discord/Local Storage/leveldb/000003.log" -ForegroundColor Green
+Start-Sleep -Milliseconds 80
+Write-Host "[OK] /home/user/.mozilla/firefox/xxxxxxxx.default-release/cookies.sqlite" -ForegroundColor Green
+Start-Sleep -Milliseconds 80
+Write-Host "[ERROR] /home/user/.mozilla/firefox/xxxxxxxx.default-release/key4.db (locked)" -ForegroundColor Red
+Start-Sleep -Milliseconds 80
+Write-Host "[OK] /var/www/html/wp-config.php" -ForegroundColor Green
+Start-Sleep -Milliseconds 80
+Write-Host "[OK] /var/backups/mysql_dump_2024.sql" -ForegroundColor Green
+Start-Sleep -Milliseconds 80
+Write-Host "[WARNING] /etc/shadow" -ForegroundColor Yellow
+Start-Sleep -Milliseconds 80
+Write-Host "[OK] /etc/passwd" -ForegroundColor Green
+Start-Sleep -Milliseconds 80
+Write-Host "[OK] /etc/ssl/private/domain.key" -ForegroundColor Green
+Start-Sleep -Milliseconds 80
+Write-Host "[OK] /root/.aws/credentials" -ForegroundColor Green
+Start-Sleep -Milliseconds 80
+Write-Host "[WARNING] /root/.docker/config.json" -ForegroundColor Yellow
+Start-Sleep -Milliseconds 80
+Write-Host "[OK] /opt/vpn/openvpn.ovpn" -ForegroundColor Green
+Start-Sleep -Milliseconds 80
+Write-Host "[OK] C:\Users\user\Documents\passwords.xlsx" -ForegroundColor Green
+Start-Sleep -Milliseconds 80
+Write-Host "[OK] C:\Users\user\Documents\crypto_wallet.dat" -ForegroundColor Green
+Start-Sleep -Milliseconds 80
+Write-Host "[WARNING] C:\Users\user\Documents\backup_2024.enc" -ForegroundColor Yellow
+Start-Sleep -Milliseconds 80
+Write-Host "[OK] C:\Users\user\Desktop\important.txt" -ForegroundColor Green
+Start-Sleep -Milliseconds 80
+Write-Host "[OK] C:\Users\user\Desktop\work_notes.md" -ForegroundColor Green
+Start-Sleep -Milliseconds 80
+Write-Host "[ERROR] C:\Users\user\Desktop\secret.zip (password protected)" -ForegroundColor Red
+Start-Sleep -Milliseconds 80
+Write-Host "[OK] C:\Users\user\Downloads\tor-browser-windows-x86_64-portable-13.0.exe" -ForegroundColor Green
+Start-Sleep -Milliseconds 80
+Write-Host "[WARNING] C:\Users\user\AppData\Roaming\Signal\sql\db.sqlite" -ForegroundColor Yellow
+Start-Sleep -Milliseconds 80
+Write-Host "[OK] C:\Users\user\AppData\Roaming\Telegram Desktop\tdata\user_data" -ForegroundColor Green
+Start-Sleep -Milliseconds 80
+Write-Host "[OK] C:\Windows\System32\config\SAM" -ForegroundColor Green
+Start-Sleep -Milliseconds 80
+Write-Host "[ERROR] C:\Windows\System32\config\SYSTEM (access denied)" -ForegroundColor Red
+Start-Sleep -Milliseconds 80
+Write-Host "[WARNING] C:\Windows\System32\drivers\etc\hosts" -ForegroundColor Yellow
+Start-Sleep -Milliseconds 80
+Write-Host "[OK] C:\Windows\Panther\Unattend.xml" -ForegroundColor Green
+Start-Sleep -Milliseconds 80
+Write-Host "[OK] /home/user/private_folder/file_41.dat" -ForegroundColor Green
+Start-Sleep -Milliseconds 80
+Write-Host "[OK] /home/user/private_folder/file_42.dat" -ForegroundColor Green
+Start-Sleep -Milliseconds 80
+Write-Host "[OK] /home/user/private_folder/file_43.dat" -ForegroundColor Green
+Start-Sleep -Milliseconds 80
+Write-Host "[OK] /home/user/private_folder/file_44.dat" -ForegroundColor Green
+Start-Sleep -Milliseconds 80
+Write-Host "[OK] /home/user/private_folder/file_45.dat" -ForegroundColor Green
+Start-Sleep -Milliseconds 80
+Write-Host "[WARNING] /home/user/private_folder/file_46.dat (0KB)" -ForegroundColor Yellow
+Start-Sleep -Milliseconds 80
+Write-Host "[OK] /home/user/private_folder/file_47.dat" -ForegroundColor Green
+Start-Sleep -Milliseconds 80
+Write-Host "[OK] /home/user/private_folder/file_48.dat" -ForegroundColor Green
+Start-Sleep -Milliseconds 80
+Write-Host "[OK] /home/user/private_folder/file_49.dat" -ForegroundColor Green
+Start-Sleep -Milliseconds 80
+Write-Host "[OK] /home/user/private_folder/file_50.dat" -ForegroundColor Green
+Start-Sleep -Milliseconds 80
+Write-Host "[! ENCRYPTED] /var/backups/full_system.img.enc" -ForegroundColor Magenta
+Start-Sleep -Milliseconds 80
+Write-Host "[! DUMP] C:\Users\user\AppData\Local\CrashDumps\lsass.exe.dmp" -ForegroundColor Magenta
+Start-Sleep -Milliseconds 80
+Write-Host "[WARNING] C:\Users\user\AppData\Local\Microsoft\Vault\user_vault.vcrd" -ForegroundColor Yellow
+Start-Sleep -Milliseconds 80
+Write-Host "[OK] C:\Users\user\AppData\Local\Microsoft\Windows\Notifications\appdb.dat" -ForegroundColor Green
+Start-Sleep -Milliseconds 80
+Write-Host "[OK] /home/user/.local/share/keyrings/login.keyring" -ForegroundColor Green
+Start-Sleep -Milliseconds 80
+Write-Host "[OK] C:\Users\user\AppData\Local\Microsoft\Windows\WebCache\WebCacheV01.dat" -ForegroundColor Green
+Start-Sleep -Milliseconds 80
 
-    # ---- Windows AppData (твои пути) ----
-    @{Status="OK"; Path="C:\Users\user\AppData\Local\.IdentityService\master.key"; Size="2KB"},
-    @{Status="OK"; Path="C:\Users\user\AppData\Local\Comms\Unistore\data.edb"; Size="18.3MB"},
-    @{Status="WARNING"; Path="C:\Users\user\AppData\Local\ConnectedDevicesPlatform\L.user.cdp"; Size="412KB"},
-    @{Status="OK"; Path="C:\Users\user\AppData\Local\D3DSCache\fe8d97be6d92aa78\cache.bin"; Size="6.2MB"},
-    @{Status="OK"; Path="C:\Users\user\AppData\Local\D3DSCache\27f9580d534520b0\shader.cache"; Size="2.1MB"},
-    @{Status="OK"; Path="C:\Users\user\AppData\Local\Google\Chrome\User Data\Default\Cookies"; Size="1.8MB"},
-    @{Status="ERROR"; Path="C:\Users\user\AppData\Local\Google\Chrome\User Data\Default\Login Data"; Size="(protected)"},
-    @{Status="OK"; Path="C:\Users\user\AppData\Local\Microsoft\Edge\User Data\Default\History"; Size="4.2MB"},
-    @{Status="WARNING"; Path="C:\Users\user\AppData\Local\Microsoft\Windows\UsrClass.dat"; Size="8.9MB"},
-    @{Status="OK"; Path="C:\Users\user\AppData\Local\JetBrains\IntelliJIdea\eval.key"; Size="16KB"},
-    @{Status="OK"; Path="C:\Users\user\AppData\Local\Packages\Microsoft.WindowsStore_8wekyb3d8bbwe\AC\Token.dat"; Size="512KB"},
-    @{Status="OK"; Path="C:\Users\user\AppData\Local\Adobe\CameraRaw\CameraProfiles\profile.icc"; Size="4.3MB"},
-    @{Status="OK"; Path="C:\Users\user\AppData\Local\ProtonVPN\config.ovpn"; Size="2KB"},
-    @{Status="OK"; Path="C:\Users\user\AppData\Local\NVIDIA Corporation\GfeSDK\GFE.log"; Size="845KB"},
-    @{Status="OK"; Path="C:\Users\user\AppData\Local\EpicGamesLauncher\Saved\Config\Windows\GameUserSettings.ini"; Size="12KB"},
-    @{Status="WARNING"; Path="C:\Users\user\AppData\Local\Bluestacks\bluestacks.conf"; Size="156KB"},
-    @{Status="OK"; Path="C:\Users\user\AppData\Local\Programs\Python\Python310\Lib\site-packages\pip\__main__.py"; Size="4KB"},
-    @{Status="OK"; Path="C:\Users\user\MediaGet2\settings.db"; Size="892KB"},
-    @{Status="ERROR"; Path="C:\Users\user\AppData\LocalLow\Adobe\CRLogs\camera_raw.log"; Size="(in use)"},
-    @{Status="OK"; Path="C:\Users\user\AppData\Local\ACD Systems\Catalogs\main.cat"; Size="42MB"},
-    @{Status="OK"; Path="C:\Users\user\AppData\Local\CrashDumps\chrome.exe.11888.dmp"; Size="156MB"},
-    @{Status="WARNING"; Path="C:\Users\user\AppData\Local\ConnectedDevicesPlatform\CDPGlobalSettings.cdp"; Size="84KB"},
-    
-    # ---- Linux / серверные пути ----
-    @{Status="OK"; Path="/home/user/private_folder/credentials_backup.db"; Size="3.2MB"},
-    @{Status="OK"; Path="/home/user/private_folder/photos/vacation_2024.zip"; Size="284MB"},
-    @{Status="OK"; Path="/home/user/private_folder/wifi_passwords.txt"; Size="12KB"},
-    @{Status="WARNING"; Path="/home/user/private_folder/.env"; Size="1KB"},
-    @{Status="OK"; Path="/home/user/private_folder/ssh/id_rsa"; Size="3KB"},
-    @{Status="OK"; Path="/home/user/private_folder/ssh/id_rsa.pub"; Size="1KB"},
-    @{Status="ERROR"; Path="/home/user/private_folder/gpg/private.key"; Size="(encrypted)"},
-    @{Status="OK"; Path="/home/user/Documents/bank_statement_2024.pdf"; Size="1.4MB"},
-    @{Status="OK"; Path="/home/user/Documents/passport_scan.jpg"; Size="2.8MB"},
-    @{Status="WARNING"; Path="/home/user/.bash_history"; Size="45KB"},
-    @{Status="OK"; Path="/home/user/.ssh/known_hosts"; Size="8KB"},
-    @{Status="OK"; Path="/home/user/.config/discord/Local Storage/leveldb/000003.log"; Size="12.4MB"},
-    @{Status="OK"; Path="/home/user/.mozilla/firefox/xxxxxxxx.default-release/cookies.sqlite"; Size="2.3MB"},
-    @{Status="ERROR"; Path="/home/user/.mozilla/firefox/xxxxxxxx.default-release/key4.db"; Size="(locked)"},
-    @{Status="OK"; Path="/var/www/html/wp-config.php"; Size="56KB"},
-    @{Status="OK"; Path="/var/backups/mysql_dump_2024.sql"; Size="892MB"},
-    @{Status="WARNING"; Path="/etc/shadow"; Size="2KB"},
-    @{Status="OK"; Path="/etc/passwd"; Size="3KB"},
-    @{Status="OK"; Path="/etc/ssl/private/domain.key"; Size="4KB"},
-    @{Status="OK"; Path="/root/.aws/credentials"; Size="512B"},
-    @{Status="WARNING"; Path="/root/.docker/config.json"; Size="1KB"},
-    @{Status="OK"; Path="/opt/vpn/openvpn.ovpn"; Size="2KB"},
-    
-    # ---- Ещё Windows (документы, десктоп) ----
-    @{Status="OK"; Path="C:\Users\user\Documents\passwords.xlsx"; Size="84KB"},
-    @{Status="OK"; Path="C:\Users\user\Documents\crypto_wallet.dat"; Size="128KB"},
-    @{Status="WARNING"; Path="C:\Users\user\Documents\backup_2024.enc"; Size="1.2GB"},
-    @{Status="OK"; Path="C:\Users\user\Desktop\important.txt"; Size="4KB"},
-    @{Status="OK"; Path="C:\Users\user\Desktop\work_notes.md"; Size="156KB"},
-    @{Status="ERROR"; Path="C:\Users\user\Desktop\secret.zip"; Size="(password protected)"},
-    @{Status="OK"; Path="C:\Users\user\Downloads\tor-browser-windows-x86_64-portable-13.0.exe"; Size="92MB"},
-    @{Status="WARNING"; Path="C:\Users\user\AppData\Roaming\Signal\sql\db.sqlite"; Size="18.7MB"},
-    @{Status="OK"; Path="C:\Users\user\AppData\Roaming\Telegram Desktop\tdata\user_data"; Size="342MB"},
-    
-    # ---- Системные чувствительные зоны ----
-    @{Status="OK"; Path="C:\Windows\System32\config\SAM"; Size="48KB"},
-    @{Status="ERROR"; Path="C:\Windows\System32\config\SYSTEM"; Size="(access denied)"},
-    @{Status="WARNING"; Path="C:\Windows\System32\drivers\etc\hosts"; Size="1KB"},
-    @{Status="OK"; Path="C:\Windows\Panther\Unattend.xml"; Size="8KB"},
-    @{Status="OK"; Path="C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys\*"; Size="multiple"},
-    
-    # ---- Ещё Linux для объёма ----
-    @{Status="OK"; Path="/home/user/private_folder/file_41.dat"; Size="1.8MB"},
-    @{Status="OK"; Path="/home/user/private_folder/file_42.dat"; Size="2.3MB"},
-    @{Status="OK"; Path="/home/user/private_folder/file_43.dat"; Size="984KB"},
-    @{Status="OK"; Path="/home/user/private_folder/file_44.dat"; Size="4.1MB"},
-    @{Status="OK"; Path="/home/user/private_folder/file_45.dat"; Size="3.7MB"},
-    @{Status="WARNING"; Path="/home/user/private_folder/file_46.dat"; Size="0KB"},
-    @{Status="OK"; Path="/home/user/private_folder/file_47.dat"; Size="5.2MB"},
-    @{Status="OK"; Path="/home/user/private_folder/file_48.dat"; Size="2.9MB"},
-    @{Status="OK"; Path="/home/user/private_folder/file_49.dat"; Size="6.4MB"},
-    @{Status="OK"; Path="/home/user/private_folder/file_50.dat"; Size="1.1MB"},
-    
-    # ---- Финальные "жирные" цели ----
-    @{Status="! ENCRYPTED"; Path="/var/backups/full_system.img.enc"; Size="4.8GB"},
-    @{Status="! DUMP"; Path="C:\Users\user\AppData\Local\CrashDumps\lsass.exe.dmp"; Size="224MB"},
-    @{Status="WARNING"; Path="C:\Users\user\AppData\Local\Microsoft\Vault\user_vault.vcrd"; Size="64KB"},
-    @{Status="OK"; Path="C:\Users\user\AppData\Local\Microsoft\Windows\Notifications\appdb.dat"; Size="892KB"},
-    @{Status="OK"; Path="/home/user/.local/share/keyrings/login.keyring"; Size="12KB"},
-    @{Status="OK"; Path="C:\Users\user\AppData\Local\Microsoft\Windows\WebCache\WebCacheV01.dat"; Size="28.3MB}"
-)
-
-# ============================================
-# ВЫВОД — ОДИН ЗА ДРУГИМ
-# ============================================
-
-foreach ($file in $files) {
-    
-    # Определяем цвет и символ
-    switch -Wildcard ($file.Status) {
-        "OK"         { $color = "Green"; $symbol = "[OK]" }
-        "WARNING"    { $color = "Yellow"; $symbol = "[WARNING]" }
-        "ERROR"      { $color = "Red"; $symbol = "[ERROR]" }
-        "!*"         { $color = "Magenta"; $symbol = $file.Status }
-        default      { $color = "Gray"; $symbol = "[$($file.Status)]" }
-    }
-    
-    # Выводим строку
-    Write-Host "$symbol $($file.Path)" -ForegroundColor $color -NoNewline
-    
-    if ($file.Size) {
-        Write-Host " ($($file.Size))" -ForegroundColor Gray
-    } else {
-        Write-Host ""
-    }
-    
-    # Разная задержка для реализма
-    if ($file.Status -eq "WARNING" -or $file.Status -eq "! ENCRYPTED") {
-        Start-Sleep -Milliseconds 220  # важные файлы — дольше
-    } elseif ($file.Status -eq "ERROR") {
-        Start-Sleep -Milliseconds 150
-    } else {
-        Start-Sleep -Milliseconds (Get-Random -Min 50 -Max 110)
-    }
-}
-
-# Финальный акцент
-Start-Sleep 0.8
 Write-Host ""
-Write-Host "[!] TOTAL FILES EXFILTRATED: $($files.Count)" -ForegroundColor Red
-Write-Host "[!] DATA VOLUME: ~2.4GB" -ForegroundColor Red
+Write-Host "[!] TOTAL FILES EXFILTRATED: 70" -ForegroundColor Red
 Start-Sleep 1.5
 
 # PHASE 3 — SECOND WINDOW CHAOS
