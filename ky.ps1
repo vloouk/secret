@@ -406,38 +406,21 @@ Start-Sleep 1
 Type-Text "Password signature reconstructed successfully." "Green"
 Start-Sleep 2
 
-# PHASE 6 — SECONDARY DATA LOG (НЕ ФАЙЛЫ, А СОБЫТИЯ)
+# PHASE 6 — SECOND MINI DATA LEAK
 Type-Text "Running extended diagnostics..." "Magenta"
 Percent-Load "Scanning system layers..." 10
 
 Write-Host ""
-Write-Host "=== SYSTEM EVENT LOG ===" -ForegroundColor DarkCyan
-Start-Sleep 0.8
+Write-Host "=== SECONDARY DATA LOG ===" -ForegroundColor DarkCyan
 
-$events = @(
-    "[EVENT] 4624 - Successful logon (admin@BLACKICE)" -ForegroundColor Green,
-    "[EVENT] 4672 - Special privileges assigned to new logon" -ForegroundColor Yellow,
-    "[EVENT] 4688 - Process created: powershell.exe -enc JGNtZ..." -ForegroundColor Gray,
-    "[EVENT] 5156 - Windows Filtering Platform connection" -ForegroundColor Cyan,
-    "[ALERT] 7045 - Service installed: BLACKICE Driver" -ForegroundColor Red,
-    "[EVENT] 1102 - Audit log cleared" -ForegroundColor Yellow,
-    "[EVENT] 4648 - Logon attempt using explicit credentials" -ForegroundColor Yellow,
-    "[EVENT] 5379 - Credential Manager credentials read" -ForegroundColor Red,
-    "[EVENT] 4698 - Scheduled task created: BlackiceUpdate" -ForegroundColor Cyan,
-    "[EVENT] 20001 - BLACKICE tunnel established [93.85.84.255]" -ForegroundColor Green,
-    "[ALERT] 24586 - LSASS memory access detected" -ForegroundColor Red,
-    "[EVENT] 5038 - Code integrity determined image corruption" -ForegroundColor Magenta,
-    "[EVENT] 6281 - Code Integrity determined invalid page hash" -ForegroundColor Yellow,
-    "[EVENT] 16 - Windows is shutting down (simulated)" -ForegroundColor Gray,
-    "[ALERT] 1001 - BugCheck: 0x0000001a (MEMORY_MANAGEMENT)" -ForegroundColor Red
-)
-
-foreach ($event in $events) {
-    Write-Host $event[0] -ForegroundColor $event[1]
-    Start-Sleep -Milliseconds (Get-Random -Min 90 -Max 180)
+for ($i=1; $i -le 15; $i++) {
+    Write-Host "[OK] /home/user/private_folder/file_$i.tmp" -ForegroundColor Yellow
+    Start-Sleep -Milliseconds 100
 }
 
-Start-Sleep 1.5
+Write-Host "[OK] /var/log/system.log"
+Write-Host "[OK] /etc/passwd"
+Start-Sleep 2
 
 # DRAMATIC TWIST 😄
 cls
