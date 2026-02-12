@@ -513,9 +513,9 @@ Type-Text "Nothing was hacked." "Green"
 Start-Sleep 1.3
 Type-Text "No data was touched." "Green"
 Start-Sleep 1.3
-Type-Text "This is just..." "Magenta"
-Start-Sleep 0.5
-Type-Text "...a friendly Valentine's surprise." "Yellow" 70
+Type-Text "This is just..." "Yellow"
+Start-Sleep 1
+Type-Text "...a friendly Valentine's surprise." "Magenta" 70
 Start-Sleep 1
 
 Write-Host ""
@@ -531,9 +531,10 @@ $heart = @"
 "@
 Write-Host $heart -ForegroundColor Red
 Start-Sleep 1.2
-$friendName = "𝐊𝐬𝐮𝐬𝐡𝐚 Ksusha"
+$friendnam = "Ksusha"
 
 Write-Host ""
-Type-Text "HAPPY VALENTINE'S DAY, $friendName! ❤️" "Yellow" 80
+Type-Text "HAPPY VALENTINE'S DAY, $friendnam! ❤️" "Yellow" 80
 Start-Sleep 1
 Type-Text "Your files are safe. Your nerves are not :)" "Cyan"
+Write-Host ""
