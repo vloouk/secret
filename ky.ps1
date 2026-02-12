@@ -335,16 +335,16 @@ Start-Sleep 1.5
 # 2. Принтер
 Write-Host " - Printer: Canon CAPT USB Device" -ForegroundColor Yellow
 Start-Sleep 1
-Write-Host "[!] Sending PDL data stream..." -ForegroundColor Cyan
+Write-Host "Sending PDL data stream..." -ForegroundColor Cyan
 Start-Sleep 1
-Write-Host "Driver error: 0xE0691619" -ForegroundColor Red
+Write-Host "[!] Driver error: 0xE0691619" -ForegroundColor Red
 Start-Sleep 1.5
 
 # 3. Клавиатура
 Write-Host " - 2.4G Keyboard Mouse (HID-2345F-3A901)" -ForegroundColor Yellow
 Start-Sleep 1
-Write-Host "[!] Device authenticated" -ForegroundColor Magenta
-Start-Sleep 0.5
+Write-Host "[+] Device authenticated" -ForegroundColor Magenta
+Start-Sleep 0.8
 Write-Host "Keystroke logging activated" -ForegroundColor Green
 Start-Sleep 1.2
 Write-Host "Mouse tracking initialized" -ForegroundColor Green
@@ -353,11 +353,11 @@ Start-Sleep 1.5
 # 4. Telegrama
 Write-Host " - Scanning Telegram connected devices..." -ForegroundColor DarkYellow
 Start-Sleep 2
-Write-Host "Found 1 device linked to @UVVENA #*1475288910" -ForegroundColor Yellow
+Write-Host " - Found 1 device linked to @UVVENA #*1475288910" -ForegroundColor Yellow
 Start-Sleep 1.5
-Write-Host "iPhone 16 Pro (White) [A3083-345288]" -ForegroundColor White
+Write-Host "[+] iPhone 16 Pro (White) [A3083-345288]" -ForegroundColor White
 Start-Sleep 0.8
-Write-Host "Attempting to bypass iCloud lock..." -ForegroundColor Cyan
+Write-Host "[+] Attempting to bypass iCloud lock..." -ForegroundColor Cyan
 Start-Sleep 1.8
 Write-Host "Failed: iCloud Protection v4.0" -ForegroundColor Red
 Start-Sleep 0.5
@@ -515,7 +515,7 @@ Type-Text "No data was touched." "Green"
 Start-Sleep 1.3
 Type-Text "This is just..." "Magenta"
 Start-Sleep 0.5
-Type-Text "...a friendly Valentine's surprise." "Pink" 70
+Type-Text "...a friendly Valentine's surprise." "Yellow" 70
 Start-Sleep 1
 
 Write-Host ""
