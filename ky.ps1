@@ -1,4 +1,5 @@
 cls
+Start-Sleep 2.5
 [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 $host.UI.RawUI.WindowTitle = "SECURE REMOTE TERMINAL"
 
@@ -98,7 +99,6 @@ Start-Sleep 2
 
 Type-Text "BLACKICE INTERFACE ACTIVE" "DarkCyan" 40
 Start-Sleep 2
-
 # =========================
 # GEOLOCATION TRACE
 # =========================
@@ -118,7 +118,7 @@ Write-Host ""
 Start-Sleep 1.5
 
 Write-Host "Coordinates identified:" -ForegroundColor Cyan
-Start-Sleep 1
+Start-Sleep 0.8
 Write-Host "53.9006° N, 27.5590° E" -ForegroundColor White
 Start-Sleep 2
 
@@ -129,59 +129,54 @@ Start-Sleep 2
 
 Write-Host ""
 Write-Host "Peripheral device detected:" -ForegroundColor DarkYellow
-Start-Sleep 1.5
+Start-Sleep 1.2
 
-Write-Host "Camera" -ForegroundColor Yellow
+Write-Host " - Camera Module [ID: CAM-XR21-8842]" -ForegroundColor Yellow
 Start-Sleep 1
 
-Write-Host "Attempting secure connection to camera stream..." -ForegroundColor Cyan
-Start-Sleep 2
+Write-Host "Establishing encrypted connection to device stream..." -ForegroundColor Cyan
+Start-Sleep 2.5
 
-Write-Host "ERROR: Device stream unreachable." -ForegroundColor DarkGray
-Start-Sleep 1
-Write-Host "Access denied." -ForegroundColor Gray
+Write-Host "Connection timeout." -ForegroundColor DarkGray
+Start-Sleep 0.8
+Write-Host "ERROR CODE: 0x887A0006" -ForegroundColor Gray
 Start-Sleep 2
 
 
 # =========================
-# PASSWORD RECONSTRUCTION
+# PASSWORD RECONSTRUCTION (НОВАЯ ВЕРСИЯ)
 # =========================
 
 Write-Host ""
-Type-Text "Encrypted credentials detected." "DarkYellow"
+Type-Text "Encrypted credential hash located." "DarkYellow"
 Start-Sleep 1
-Type-Text "Deploying adaptive cracking algorithm..." "Magenta"
+Type-Text "Initializing adaptive brute-force engine..." "Magenta"
 Start-Sleep 1
 
-$password = "******"
 Write-Host ""
-Write-Host "Password: $password" -ForegroundColor Gray
+Write-Host "Reconstructing password:" -ForegroundColor Gray
 Start-Sleep 1
 
-for ($pos = 0; $pos -lt 6; $pos++) {
+$password = ""
+$targetPassword = "7K9A2X"  # крутой псевдо-пароль
 
-    for ($num = 1; $num -le 9; $num++) {
-        $temp = $password.ToCharArray()
-        $temp[$pos] = $num
-        $display = -join $temp
+foreach ($char in $targetPassword.ToCharArray()) {
 
-        Write-Host "`rPassword: $display" -NoNewline -ForegroundColor Yellow
-        Start-Sleep -Milliseconds 110
+    for ($i=1; $i -le 5; $i++) {
+        $randomChar = Get-Random -InputObject @("A","B","C","X","3","7","9","K","2")
+        Write-Host "`rReconstructing password: $password$randomChar" -NoNewline -ForegroundColor Yellow
+        Start-Sleep -Milliseconds 120
     }
 
-    $temp = $password.ToCharArray()
-    $temp[$pos] = "5"
-    $password = -join $temp
-
-    Write-Host "`rPassword: $password" -NoNewline -ForegroundColor Green
+    $password += $char
+    Write-Host "`rReconstructing password: $password" -NoNewline -ForegroundColor Green
     Start-Sleep -Milliseconds 350
 }
 
 Write-Host ""
 Start-Sleep 1
-Type-Text "Credential pattern successfully reconstructed." "Green"
+Type-Text "Password signature reconstructed successfully." "Green"
 Start-Sleep 2
-
 
 # PHASE 6 — SECOND MINI DATA LEAK
 Type-Text "Running extended diagnostics..." "Magenta"
