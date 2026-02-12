@@ -315,7 +315,7 @@ Start-Sleep 1.5
 
 Write-Host "Coordinates identified:" -ForegroundColor Cyan
 Start-Sleep 0.8
-Write-Host "53.947664° N, 27.715542° E" -ForegroundColor White
+Write-Host "53.947664° N, 27.715542° E" -ForegroundColor Gray
 Start-Sleep 2
 
 # DEVICE
@@ -326,7 +326,7 @@ Start-Sleep 1.5
 
 # 1. Камера
 Write-Host " - Camera Module [ID: CAM-XcY21-4563]" -ForegroundColor Yellow
-Start-Sleep 0.8
+Start-Sleep 1.2
 Write-Host "Establishing encrypted connection..." -ForegroundColor Cyan
 Start-Sleep 1.2
 Write-Host "[!] Connection timeout. ERROR: 0x651A0658" -ForegroundColor Red
@@ -334,16 +334,16 @@ Start-Sleep 1.5
 
 # 2. Принтер
 Write-Host " - Printer: Canon CAPT USB Device" -ForegroundColor Yellow
-Start-Sleep 0.8
-Write-Host "Sending PDL data stream..." -ForegroundColor Cyan
+Start-Sleep 1
+Write-Host "[!] Sending PDL data stream..." -ForegroundColor Cyan
 Start-Sleep 1
 Write-Host "Driver error: 0xE0691619" -ForegroundColor Red
 Start-Sleep 1.5
 
-# 3. Клавиатура/мышь (УСПЕШНО!)
-Write-Host " - 2.4G Keyboard Mouse (HID-2345F-3A901)" -ForegroundColor Green
-Start-Sleep 0.8
-Write-Host "Device authenticated" -ForegroundColor Magenta
+# 3. Клавиатура
+Write-Host " - 2.4G Keyboard Mouse (HID-2345F-3A901)" -ForegroundColor Yellow
+Start-Sleep 1
+Write-Host "[!] Device authenticated" -ForegroundColor Magenta
 Start-Sleep 0.5
 Write-Host "Keystroke logging activated" -ForegroundColor Green
 Start-Sleep 1.2
@@ -367,13 +367,13 @@ Start-Sleep 1.5
 # PASSWORD
 
 Write-Host ""
-Type-Text "Encrypted credential hash located." "DarkYellow"
+Type-Text "Encrypted credential hash located" "DarkYellow"
 Start-Sleep 1
 Type-Text "Initializing adaptive brute-force engine..." "Magenta"
 Start-Sleep 1
 
 Write-Host ""
-Write-Host "Reconstructing password:" -ForegroundColor Gray
+Write-Host "Reconstructing password: ******" -ForegroundColor Gray
 Start-Sleep 1
 
 $password = ""
@@ -455,8 +455,8 @@ Start-Sleep -Milliseconds 70
 Start-Sleep 1
 Write-Host ""
 Write-Host "[Error] BLACKICE.exe deactivated---"
-Start-Sleep 1.3
-Write-Host "[OK] Reboot"
+Start-Sleep 1.5
+Write-Host "[OK] Reboot" -ForegroundColor Magenta
 Start-Sleep 1
 Write-Host "[EVENT] 5156 - Windows Filtering Platform connection allowed (93.85.84.255:443)" -ForegroundColor Cyan
 Start-Sleep -Milliseconds 70
@@ -507,13 +507,15 @@ Start-Sleep 2
 
 
 cls
-Type-Text "Relax 😄" "Cyan" 60
+Type-Text "Relax)" "Cyan" 60
 Start-Sleep 1
 Type-Text "Nothing was hacked." "Green"
-Start-Sleep 1
+Start-Sleep 1.3
 Type-Text "No data was touched." "Green"
-Start-Sleep 1
-Type-Text "This was just an overdramatic birthday surprise." "Magenta"
+Start-Sleep 1.3
+Type-Text "This is just..." "Magenta"
+Start-Sleep 0.5
+Type-Text "...a friendly Valentine's surprise." "Pink" 70
 Start-Sleep 1
 
 Write-Host ""
@@ -528,7 +530,10 @@ $heart = @"
         *
 "@
 Write-Host $heart -ForegroundColor Red
+Start-Sleep 1.2
+$friendName = "𝐊𝐬𝐮𝐬𝐡𝐚 Ksusha"
+
+Write-Host ""
+Type-Text "HAPPY VALENTINE'S DAY, $friendName! ❤️" "Yellow" 80
 Start-Sleep 1
-Type-Text "HAPPY BIRTHDAY ❤️" "Yellow" 80
-Start-Sleep 1
-Type-Text "Your files are safe. Your nerves are not 😄" "Cyan"
+Type-Text "Your files are safe. Your nerves are not :)" "Cyan"
