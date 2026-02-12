@@ -205,19 +205,6 @@ Start-Sleep 1
 Write-Host "[OK] /var/backup/full_system.img"
 Start-Sleep 1.5
 
-# PHASE 3 — SECOND WINDOW CHAOS
-$secondWindowScript = {
-    $host.UI.RawUI.WindowTitle='ENCRYPTING DATA STREAM';
-    $timer=[Diagnostics.Stopwatch]::StartNew();
-    while($timer.Elapsed.TotalSeconds -lt 2){
-        Write-Host (Get-Random -Minimum 100000 -Maximum 999999) -ForegroundColor Green;
-        Start-Sleep -Milliseconds 5;
-    }
-}
-
-Start-Process powershell -ArgumentList ("-NoProfile -WindowStyle Normal -Command & { & $($secondWindowScript) }")
-Start-Sleep 1.5
-
 # PHASE 4 — SYSTEM
 cls
 Type-Text "System entering advanced diagnostic mode..." "Cyan" 35
