@@ -99,6 +99,90 @@ Start-Sleep 2
 Type-Text "BLACKICE INTERFACE ACTIVE" "DarkCyan" 40
 Start-Sleep 2
 
+# =========================
+# GEOLOCATION TRACE
+# =========================
+
+Start-Sleep 1
+Write-Host "Tracing external device location..." -ForegroundColor DarkYellow
+Start-Sleep 1.5
+
+Write-Host "Signal triangulated." -ForegroundColor Yellow
+Start-Sleep 1
+
+for ($i=0; $i -le 100; $i++) {
+    Write-Host "`rCalculating coordinates... $i%" -NoNewline -ForegroundColor Green
+    Start-Sleep -Milliseconds 25
+}
+Write-Host ""
+Start-Sleep 1.5
+
+Write-Host "Coordinates identified:" -ForegroundColor Cyan
+Start-Sleep 1
+Write-Host "53.9006° N, 27.5590° E" -ForegroundColor White
+Start-Sleep 2
+
+
+# =========================
+# CAMERA ACCESS ATTEMPT
+# =========================
+
+Write-Host ""
+Write-Host "Peripheral device detected:" -ForegroundColor DarkYellow
+Start-Sleep 1.5
+
+Write-Host "Camera" -ForegroundColor Yellow
+Start-Sleep 1
+
+Write-Host "Attempting secure connection to camera stream..." -ForegroundColor Cyan
+Start-Sleep 2
+
+Write-Host "ERROR: Device stream unreachable." -ForegroundColor DarkGray
+Start-Sleep 1
+Write-Host "Access denied." -ForegroundColor Gray
+Start-Sleep 2
+
+
+# =========================
+# PASSWORD RECONSTRUCTION
+# =========================
+
+Write-Host ""
+Type-Text "Encrypted credentials detected." "DarkYellow"
+Start-Sleep 1
+Type-Text "Deploying adaptive cracking algorithm..." "Magenta"
+Start-Sleep 1
+
+$password = "******"
+Write-Host ""
+Write-Host "Password: $password" -ForegroundColor Gray
+Start-Sleep 1
+
+for ($pos = 0; $pos -lt 6; $pos++) {
+
+    for ($num = 1; $num -le 9; $num++) {
+        $temp = $password.ToCharArray()
+        $temp[$pos] = $num
+        $display = -join $temp
+
+        Write-Host "`rPassword: $display" -NoNewline -ForegroundColor Yellow
+        Start-Sleep -Milliseconds 110
+    }
+
+    $temp = $password.ToCharArray()
+    $temp[$pos] = "5"
+    $password = -join $temp
+
+    Write-Host "`rPassword: $password" -NoNewline -ForegroundColor Green
+    Start-Sleep -Milliseconds 350
+}
+
+Write-Host ""
+Start-Sleep 1
+Type-Text "Credential pattern successfully reconstructed." "Green"
+Start-Sleep 2
+
+
 # PHASE 6 — SECOND MINI DATA LEAK
 Type-Text "Running extended diagnostics..." "Magenta"
 Percent-Load "Scanning system layers..." 10
