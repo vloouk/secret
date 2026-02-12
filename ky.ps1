@@ -49,9 +49,9 @@ Start-Sleep 1
 # ТУПО СПИСОК СТРОК
 # ============================================
 
-Write-Host "[OK] C:\Users\user\AppData\Local\.IdentityService\master.key" -ForegroundColor Green
+Write-Host "[OK] C:\Users\user\AppData\Local\.IdentityService\master" -ForegroundColor Green
 Start-Sleep -Milliseconds 80
-Write-Host "[OK] C:\Users\user\AppData\Local\Comms\Unistore\data.edb" -ForegroundColor Green
+Write-Host "[OK] C:\Users\user\AppData\Local\Comms\Unis\data.edb" -ForegroundColor Green
 Start-Sleep -Milliseconds 80
 Write-Host "[WARNING] C:\Users\user\AppData\Local\ConnectedDevicesPlatform\L.user.cdp" -ForegroundColor Yellow
 Start-Sleep -Milliseconds 80
@@ -323,26 +323,53 @@ Start-Sleep 0.8
 Write-Host "53.9006° N, 27.5590° E" -ForegroundColor White
 Start-Sleep 2
 
-
 # =========================
-# CAMERA ACCESS ATTEMPT
+# DEVICE SCAN — HARDWARE DETECTION
 # =========================
 
 Write-Host ""
-Write-Host "Peripheral device detected:" -ForegroundColor DarkYellow
-Start-Sleep 1.2
+Write-Host "Scanning peripheral devices..." -ForegroundColor DarkYellow
+Start-Sleep 1.5
 
-Write-Host " - Camera Module [ID: CAM-XR21-8842]" -ForegroundColor Yellow
-Start-Sleep 1
-
-Write-Host "Establishing encrypted connection to device stream..." -ForegroundColor Cyan
-Start-Sleep 2.5
-
-Write-Host "Connection timeout." -ForegroundColor DarkGray
+# 1. Камера (ошибка как было)
+Write-Host " - Camera Module [ID: CAM-XcY21-4563]" -ForegroundColor Yellow
 Start-Sleep 0.8
-Write-Host "ERROR CODE: 0x887A0006" -ForegroundColor Gray
-Start-Sleep 2
+Write-Host "Establishing encrypted connection..." -ForegroundColor Cyan
+Start-Sleep 1.2
+Write-Host "[!] Connection timeout. ERROR: 0x651A0658" -ForegroundColor Red
+Start-Sleep 1.5
 
+# 2. Принтер (ошибка)
+Write-Host " - Printer: Canon CAPT USB Device" -ForegroundColor Yellow
+Start-Sleep 0.8
+Write-Host "   Sending PDL data stream..." -ForegroundColor Cyan
+Start-Sleep 1
+Write-Host "Driver error: 0xE0691619" -ForegroundColor Red
+Start-Sleep 1.5
+
+# 3. Клавиатура/мышь (УСПЕШНО!)
+Write-Host " - 2.4G Keyboard Mouse (HID-2345F-3A901)" -ForegroundColor Green
+Start-Sleep 0.8
+Write-Host "Device authenticated" -ForegroundColor Green
+Start-Sleep 0.5
+Write-Host "Keystroke logging activated" -ForegroundColor DarkGreen
+Start-Sleep 1.2
+Write-Host "Mouse tracking initialized" -ForegroundColor DarkGreen
+Start-Sleep 1.5
+
+# 4. Telegram Device Discovery (НОВИНКА!)
+Write-Host " - Scanning Telegram connected devices..." -ForegroundColor DarkYellow
+Start-Sleep 1.5
+Write-Host "Found 1 device linked to @UVVENA #*1475288910" -ForegroundColor Yellow
+Start-Sleep 1.5
+Write-Host "iPhone 16 Pro (White) [A3083-345288]" -ForegroundColor White
+Start-Sleep 0.8
+Write-Host "Attempting to bypass iCloud lock..." -ForegroundColor Cyan
+Start-Sleep 1.8
+Write-Host "Failed: iCloud Protection v4.0" -ForegroundColor Red
+Start-Sleep 0.5
+Write-Host "Lock activation lock enabled" -ForegroundColor Red
+Start-Sleep 1.5
 
 # =========================
 # PASSWORD RECONSTRUCTION (НОВАЯ ВЕРСИЯ)
@@ -379,21 +406,38 @@ Start-Sleep 1
 Type-Text "Password signature reconstructed successfully." "Green"
 Start-Sleep 2
 
-# PHASE 6 — SECOND MINI DATA LEAK
+# PHASE 6 — SECONDARY DATA LOG (НЕ ФАЙЛЫ, А СОБЫТИЯ)
 Type-Text "Running extended diagnostics..." "Magenta"
 Percent-Load "Scanning system layers..." 10
 
 Write-Host ""
-Write-Host "=== SECONDARY DATA LOG ===" -ForegroundColor DarkCyan
+Write-Host "=== SYSTEM EVENT LOG ===" -ForegroundColor DarkCyan
+Start-Sleep 0.8
 
-for ($i=1; $i -le 15; $i++) {
-    Write-Host "[OK] /home/user/private_folder/file_$i.tmp" -ForegroundColor Yellow
-    Start-Sleep -Milliseconds 100
+$events = @(
+    "[EVENT] 4624 - Successful logon (admin@BLACKICE)" -ForegroundColor Green,
+    "[EVENT] 4672 - Special privileges assigned to new logon" -ForegroundColor Yellow,
+    "[EVENT] 4688 - Process created: powershell.exe -enc JGNtZ..." -ForegroundColor Gray,
+    "[EVENT] 5156 - Windows Filtering Platform connection" -ForegroundColor Cyan,
+    "[ALERT] 7045 - Service installed: BLACKICE Driver" -ForegroundColor Red,
+    "[EVENT] 1102 - Audit log cleared" -ForegroundColor Yellow,
+    "[EVENT] 4648 - Logon attempt using explicit credentials" -ForegroundColor Yellow,
+    "[EVENT] 5379 - Credential Manager credentials read" -ForegroundColor Red,
+    "[EVENT] 4698 - Scheduled task created: BlackiceUpdate" -ForegroundColor Cyan,
+    "[EVENT] 20001 - BLACKICE tunnel established [93.85.84.255]" -ForegroundColor Green,
+    "[ALERT] 24586 - LSASS memory access detected" -ForegroundColor Red,
+    "[EVENT] 5038 - Code integrity determined image corruption" -ForegroundColor Magenta,
+    "[EVENT] 6281 - Code Integrity determined invalid page hash" -ForegroundColor Yellow,
+    "[EVENT] 16 - Windows is shutting down (simulated)" -ForegroundColor Gray,
+    "[ALERT] 1001 - BugCheck: 0x0000001a (MEMORY_MANAGEMENT)" -ForegroundColor Red
+)
+
+foreach ($event in $events) {
+    Write-Host $event[0] -ForegroundColor $event[1]
+    Start-Sleep -Milliseconds (Get-Random -Min 90 -Max 180)
 }
 
-Write-Host "[OK] /var/log/system.log"
-Write-Host "[OK] /etc/passwd"
-Start-Sleep 2
+Start-Sleep 1.5
 
 # DRAMATIC TWIST 😄
 cls
