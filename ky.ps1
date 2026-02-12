@@ -22,7 +22,7 @@ function Percent-Load($text, $speed=15) {
 # PHASE 1 — CONNECTION
 Type-Text "[+] Target IP located: 93.85.84.255" "Yellow"
 Start-Sleep 2
-Type-Text "[+] Port 57 OPEN" "Green"
+Type-Text "[+] Port 57/4/31 OPEN" "Green"
 Start-Sleep 2
 Type-Text "Establishing SSH session..." "Cyan"
 Percent-Load "Encrypting channel... "
@@ -197,15 +197,15 @@ Write-Host "[OK] C:\Users\user\AppData\Local\Microsoft\Windows\WebCache\WebCache
 Start-Sleep -Milliseconds 80
 
 Write-Host ""
-Write-Host "[!] TOTAL FILES EXFILTRATED: 70" -ForegroundColor Red
+Write-Host "[!] TOTAL FILES EXFILTRATED: 72" -ForegroundColor Red
 Start-Sleep 1.5
 
 Start-Sleep 1
-Write-Host "[OK] /etc/shadow"
+Write-Host "[OK] /ets/shadow"
 Start-Sleep 1
-Write-Host "[OK] /root/credentials.db"
+Write-Host "[OK] /roote/credentials.db"
 Start-Sleep 1
-Write-Host "[OK] /var/backups/full_system.img"
+Write-Host "[OK] /var/backup/full_system.img"
 Start-Sleep 1.5
 
 # PHASE 3 — SECOND WINDOW CHAOS
@@ -248,7 +248,58 @@ Write-Host $blackice -ForegroundColor DarkMagenta
 Start-Sleep 2
 
 Type-Text "BLACKICE INTERFACE ACTIVE" "DarkCyan" 40
-Start-Sleep 2
+Start-Sleep 1
+
+# =====================================
+# ВИНТАЖНЫЙ ПОЛЗУНОК КАК В WINDOWS 95
+# =====================================
+Write-Host ""
+Write-Host "Loading BLACKICE modules:" -ForegroundColor Gray
+Start-Sleep 0.5
+
+# Ползунок 1 — Kernel
+Write-Host -NoNewline "[KERNEL] " -ForegroundColor Cyan
+for ($i=1; $i -le 20; $i++) {
+    Write-Host -NoNewline "█" -ForegroundColor DarkCyan
+    Start-Sleep -Milliseconds 40
+}
+Write-Host " 100%" -ForegroundColor Green
+Start-Sleep 0.3
+
+# Ползунок 2 — Protocol
+Write-Host -NoNewline "[PROTOCOL] " -ForegroundColor Cyan
+for ($i=1; $i -le 20; $i++) {
+    Write-Host -NoNewline "█" -ForegroundColor DarkCyan
+    Start-Sleep -Milliseconds 30
+}
+Write-Host " 100%" -ForegroundColor Green
+Start-Sleep 0.3
+
+# Ползунок 3 — Encryption (с глюком)
+Write-Host -NoNewline "[ENCRYPT] " -ForegroundColor Cyan
+for ($i=1; $i -le 15; $i++) {
+    Write-Host -NoNewline "█" -ForegroundColor DarkCyan
+    Start-Sleep -Milliseconds 35
+}
+Write-Host -NoNewline "▒▒▒▒▒" -ForegroundColor Yellow
+Start-Sleep 0.5
+Write-Host " 75%" -ForegroundColor Yellow
+Start-Sleep 0.5
+Write-Host "`r[ENCRYPT] ████████████████████ 100%" -ForegroundColor Green
+Start-Sleep 0.4
+
+# Ползунок 4 — BLACKICE Core
+Write-Host -NoNewline "[BLACKICE] " -ForegroundColor Magenta
+for ($i=1; $i -le 20; $i++) {
+    Write-Host -NoNewline "█" -ForegroundColor DarkMagenta
+    Start-Sleep -Milliseconds 50
+}
+Write-Host " 100%" -ForegroundColor Green
+Start-Sleep 0.8
+
+Write-Host ""
+Write-Host "BLACKICE interface ready." -ForegroundColor Green
+Start-Sleep 1.5
 # =========================
 # GEOLOCATION TRACE
 # =========================
