@@ -36,18 +36,15 @@ Write-Host ""
 Write-Host "admin@93.85.84.255:~#" -ForegroundColor Red
 Start-Sleep 1
 
-# PHASE 2 — DATA EXFILTRATION (ПРОСТО КАК ТЫ ПРОСИЛ)
+# PHASE 2 — DATa
 Type-Text "Launching deep system scan..." "Magenta"
 Percent-Load "Extracting files..." 12
 
 Write-Host ""
 Start-Sleep 1
-Write-Host "    DATA EXFILTRATION LOG    " -ForegroundColor DarkCyan
+Write-Host "---DATA COMMUNICATION LOG---" -ForegroundColor DarkCyan
 Start-Sleep 1
 
-# ============================================
-# ТУПО СПИСОК СТРОК
-# ============================================
 
 Write-Host "[OK] C:\Users\user\AppData\Local\.IdentityService\master" -ForegroundColor Green
 Start-Sleep -Milliseconds 80
@@ -221,7 +218,7 @@ $secondWindowScript = {
 Start-Process powershell -ArgumentList ("-NoProfile -WindowStyle Normal -Command & { & $($secondWindowScript) }")
 Start-Sleep 1.5
 
-# PHASE 4 — SYSTEM TRANSITION (ФУТУРИСТИЧНЫЙ ВАРИАНТ)
+# PHASE 4 — SYSTEM
 cls
 Type-Text "System entering advanced diagnostic mode..." "Cyan" 35
 Start-Sleep 1
@@ -250,14 +247,12 @@ Start-Sleep 2
 Type-Text "BLACKICE INTERFACE ACTIVE" "DarkCyan" 40
 Start-Sleep 1
 
-# =====================================
-# ВИНТАЖНЫЙ ПОЛЗУНОК КАК В WINDOWS 95
-# =====================================
+
 Write-Host ""
 Write-Host "Loading BLACKICE modules:" -ForegroundColor Gray
 Start-Sleep 0.5
 
-# Ползунок 1 — Kernel
+# 1 — Kernel
 Write-Host -NoNewline "[KERNEL] " -ForegroundColor Cyan
 for ($i=1; $i -le 20; $i++) {
     Write-Host -NoNewline "█" -ForegroundColor DarkCyan
@@ -266,7 +261,7 @@ for ($i=1; $i -le 20; $i++) {
 Write-Host " 100%" -ForegroundColor Green
 Start-Sleep 0.3
 
-# Ползунок 2 — Protocol
+# 2 — Protocol
 Write-Host -NoNewline "[PROTOCOL] " -ForegroundColor Cyan
 for ($i=1; $i -le 20; $i++) {
     Write-Host -NoNewline "█" -ForegroundColor DarkCyan
@@ -275,7 +270,7 @@ for ($i=1; $i -le 20; $i++) {
 Write-Host " 100%" -ForegroundColor Green
 Start-Sleep 0.3
 
-# Ползунок 3 — Encryption (с глюком)
+# 3 — Encryption
 Write-Host -NoNewline "[ENCRYPT] " -ForegroundColor Cyan
 for ($i=1; $i -le 15; $i++) {
     Write-Host -NoNewline "█" -ForegroundColor DarkCyan
@@ -288,7 +283,7 @@ Start-Sleep 0.5
 Write-Host "`r[ENCRYPT] ████████████████████ 100%" -ForegroundColor Green
 Start-Sleep 0.4
 
-# Ползунок 4 — BLACKICE Core
+# 3 — BLACKICE
 Write-Host -NoNewline "[BLACKICE] " -ForegroundColor Magenta
 for ($i=1; $i -le 20; $i++) {
     Write-Host -NoNewline "█" -ForegroundColor DarkMagenta
@@ -300,9 +295,9 @@ Start-Sleep 0.8
 Write-Host ""
 Write-Host "BLACKICE interface ready." -ForegroundColor Green
 Start-Sleep 1.5
-# =========================
-# GEOLOCATION TRACE
-# =========================
+
+# GEOLOCATION
+
 
 Start-Sleep 1
 Write-Host "Tracing external device location..." -ForegroundColor DarkYellow
@@ -320,18 +315,16 @@ Start-Sleep 1.5
 
 Write-Host "Coordinates identified:" -ForegroundColor Cyan
 Start-Sleep 0.8
-Write-Host "53.9006° N, 27.5590° E" -ForegroundColor White
+Write-Host "53.947664° N, 27.715542° E" -ForegroundColor White
 Start-Sleep 2
 
-# =========================
-# DEVICE SCAN — HARDWARE DETECTION
-# =========================
+# DEVICE
 
 Write-Host ""
 Write-Host "Scanning peripheral devices..." -ForegroundColor DarkYellow
 Start-Sleep 1.5
 
-# 1. Камера (ошибка как было)
+# 1. Камера
 Write-Host " - Camera Module [ID: CAM-XcY21-4563]" -ForegroundColor Yellow
 Start-Sleep 0.8
 Write-Host "Establishing encrypted connection..." -ForegroundColor Cyan
@@ -339,10 +332,10 @@ Start-Sleep 1.2
 Write-Host "[!] Connection timeout. ERROR: 0x651A0658" -ForegroundColor Red
 Start-Sleep 1.5
 
-# 2. Принтер (ошибка)
+# 2. Принтер
 Write-Host " - Printer: Canon CAPT USB Device" -ForegroundColor Yellow
 Start-Sleep 0.8
-Write-Host "   Sending PDL data stream..." -ForegroundColor Cyan
+Write-Host "Sending PDL data stream..." -ForegroundColor Cyan
 Start-Sleep 1
 Write-Host "Driver error: 0xE0691619" -ForegroundColor Red
 Start-Sleep 1.5
@@ -350,16 +343,16 @@ Start-Sleep 1.5
 # 3. Клавиатура/мышь (УСПЕШНО!)
 Write-Host " - 2.4G Keyboard Mouse (HID-2345F-3A901)" -ForegroundColor Green
 Start-Sleep 0.8
-Write-Host "Device authenticated" -ForegroundColor Green
+Write-Host "Device authenticated" -ForegroundColor Magenta
 Start-Sleep 0.5
-Write-Host "Keystroke logging activated" -ForegroundColor DarkGreen
+Write-Host "Keystroke logging activated" -ForegroundColor Green
 Start-Sleep 1.2
-Write-Host "Mouse tracking initialized" -ForegroundColor DarkGreen
+Write-Host "Mouse tracking initialized" -ForegroundColor Green
 Start-Sleep 1.5
 
-# 4. Telegram Device Discovery (НОВИНКА!)
+# 4. Telegrama
 Write-Host " - Scanning Telegram connected devices..." -ForegroundColor DarkYellow
-Start-Sleep 1.5
+Start-Sleep 2
 Write-Host "Found 1 device linked to @UVVENA #*1475288910" -ForegroundColor Yellow
 Start-Sleep 1.5
 Write-Host "iPhone 16 Pro (White) [A3083-345288]" -ForegroundColor White
@@ -371,9 +364,7 @@ Start-Sleep 0.5
 Write-Host "Lock activation lock enabled" -ForegroundColor Red
 Start-Sleep 1.5
 
-# =========================
-# PASSWORD RECONSTRUCTION (НОВАЯ ВЕРСИЯ)
-# =========================
+# PASSWORD
 
 Write-Host ""
 Type-Text "Encrypted credential hash located." "DarkYellow"
@@ -386,7 +377,7 @@ Write-Host "Reconstructing password:" -ForegroundColor Gray
 Start-Sleep 1
 
 $password = ""
-$targetPassword = "7K9A2X"  # крутой псевдо-пароль
+$targetPassword = "7K9A2X" 
 
 foreach ($char in $targetPassword.ToCharArray()) {
 
@@ -406,23 +397,115 @@ Start-Sleep 1
 Type-Text "Password signature reconstructed successfully." "Green"
 Start-Sleep 2
 
-# PHASE 6 — SECOND MINI DATA LEAK
+# SECOND
 Type-Text "Running extended diagnostics..." "Magenta"
 Percent-Load "Scanning system layers..." 10
 
 Write-Host ""
-Write-Host "=== SECONDARY DATA LOG ===" -ForegroundColor DarkCyan
+Write-Host "---SECURITY EVENT LOG---" -ForegroundColor DarkCyan
+Start-Sleep 1
 
-for ($i=1; $i -le 15; $i++) {
-    Write-Host "[OK] /home/user/private_folder/file_$i.tmp" -ForegroundColor Yellow
-    Start-Sleep -Milliseconds 100
-}
+Write-Host "[EVENT] 4624 - Successful logon (SYSTEM)" -ForegroundColor Green
+Start-Sleep -Milliseconds 70
+Write-Host "[EVENT] 4634 - Logoff initiated (user)" -ForegroundColor Gray
+Start-Sleep -Milliseconds 70
+Write-Host "[EVENT] 4648 - Logon attempt using explicit credentials (BLACKICE\admin)" -ForegroundColor Yellow
+Start-Sleep -Milliseconds 70
+Write-Host "[EVENT] 4672 - Special privileges assigned to new logon (SeDebugPrivilege)" -ForegroundColor Yellow
+Start-Sleep -Milliseconds 70
+Write-Host "[ALERT] 4625 - Failed logon (brute-force detected) - 3 attempts" -ForegroundColor Red
+Start-Sleep -Milliseconds 70
+Write-Host "[EVENT] 4673 - Sensitive privileged service called" -ForegroundColor Yellow
+Start-Sleep -Milliseconds 70
+Write-Host "[EVENT] 4688 - Process created: powershell.exe -enc SQBBzADEAJwApAA==" -ForegroundColor Gray
+Start-Sleep -Milliseconds 70
+Write-Host "[EVENT] 4689 - Process exited: powershell.exe (PID: 8842)" -ForegroundColor Gray
+Start-Sleep -Milliseconds 70
+Write-Host "[EVENT] 4690 - An attempt was made to duplicate a handle to an object" -ForegroundColor Yellow
+Start-Sleep -Milliseconds 70
+Write-Host "[EVENT] 4656 - Handle to an object requested (C:\Windows\System32\config\SAM)" -ForegroundColor Red
+Start-Sleep -Milliseconds 70
+Write-Host "[EVENT] 4663 - An attempt was made to access an object (lsass.exe)" -ForegroundColor Red
+Start-Sleep -Milliseconds 70
+Write-Host "[EVENT] 4658 - Handle to an object closed" -ForegroundColor Gray
+Start-Sleep -Milliseconds 70
+Write-Host "[EVENT] 4660 - Object deleted" -ForegroundColor Yellow
+Start-Sleep -Milliseconds 70
+Start-Sleep 1
+Write-Host "[ALERT] 7045 - Service installed: BLACKICE Driver (BLACKICE.sys)" -ForegroundColor Red
+Start-Sleep -Milliseconds 70
+Write-Host "[EVENT] 7036 - Service entered running state: BLACKICE Driver" -ForegroundColor Green
+Start-Sleep -Milliseconds 70
+Write-Host "[EVENT] 4698 - Scheduled task created: \Microsoft\Windows\BlackiceUpdate" -ForegroundColor Cyan
+Start-Sleep -Milliseconds 70
+Write-Host "[EVENT] 4699 - Scheduled task deleted: \Microsoft\Windows\BlackiceUpdate" -ForegroundColor Yellow
+Start-Sleep -Milliseconds 70
+Write-Host "[EVENT] 4702 - Scheduled task updated: \Microsoft\Windows\BlackiceUpdate" -ForegroundColor Cyan
+Start-Sleep -Milliseconds 70
+Write-Host "[EVENT] 4720 - User account created: BlackiceAdmin" -ForegroundColor Yellow
+Start-Sleep -Milliseconds 70
+Write-Host "[EVENT] 4732 - Member added to local security group (Administrators)" -ForegroundColor Red
+Start-Sleep -Milliseconds 70
+Write-Host "[EVENT] 4738 - User account changed: BlackiceAdmin" -ForegroundColor Yellow
+Start-Sleep -Milliseconds 70
+Write-Host "[EVENT] 5379 - Credential Manager credentials read" -ForegroundColor Red
+Start-Sleep -Milliseconds 70
+Write-Host "[EVENT] 5381 - Vault credentials read (VaultSvc)" -ForegroundColor Red
+Start-Sleep -Milliseconds 70
+Start-Sleep 1
+Write-Host ""
+Write-Host "[Error] BLACKICE.exe deactivated---"
+Start-Sleep 1.3
+Write-Host "[OK] Reboot"
+Start-Sleep 1
+Write-Host "[EVENT] 5156 - Windows Filtering Platform connection allowed (93.85.84.255:443)" -ForegroundColor Cyan
+Start-Sleep -Milliseconds 70
+Write-Host "[EVENT] 5157 - Windows Filtering Platform connection blocked (45.33.22.11:4444)" -ForegroundColor Red
+Start-Sleep -Milliseconds 70
+Write-Host "[EVENT] 5158 - WFP bind to local port (0.0.0.0:4444)" -ForegroundColor Yellow
+Start-Sleep -Milliseconds 70
+Write-Host "[EVENT] 20001 - BLACKICE tunnel established [93.85.84.255:57]" -ForegroundColor Green
+Start-Sleep -Milliseconds 70
+Write-Host "[EVENT] 20002 - BLACKICE tunnel terminated" -ForegroundColor Gray
+Start-Sleep -Milliseconds 70
+Write-Host "[EVENT] 1100 - Event log service shutdown" -ForegroundColor Gray
+Start-Sleep -Milliseconds 70
+Write-Host "[EVENT] 1102 - Audit log cleared (Security)" -ForegroundColor Yellow
+Start-Sleep -Milliseconds 70
+Write-Host "[EVENT] 4719 - System audit policy changed" -ForegroundColor Yellow
+Start-Sleep -Milliseconds 70
+Write-Host "[EVENT] 4907 - Audit settings changed on object" -ForegroundColor Yellow
+Start-Sleep -Milliseconds 70
+Write-Host "[ALERT] 24586 - LSASS memory access detected (possible credential dumping)" -ForegroundColor Red
+Start-Sleep -Milliseconds 70
+Write-Host "[EVENT] 41 - Kernel-Power (system reboot without clean shutdown)" -ForegroundColor Yellow
+Start-Sleep -Milliseconds 70
+Write-Host "[EVENT] 16 - Windows is shutting down (simulated)" -ForegroundColor Gray
+Start-Sleep -Milliseconds 70
+Write-Host "[EVENT] 6008 - Previous system shutdown was unexpected" -ForegroundColor Yellow
+Start-Sleep -Milliseconds 70
+Write-Host "[ALERT] 1001 - BugCheck: 0x0000001a (MEMORY_MANAGEMENT)" -ForegroundColor Red
+Start-Sleep -Milliseconds 70
+Write-Host "[ALERT] 1001 - BugCheck: 0x0000007e (SYSTEM_THREAD_EXCEPTION_NOT_HANDLED)" -ForegroundColor Red
+Start-Sleep -Milliseconds 70
+Write-Host "[EVENT] 1074 - System shutdown initiated by BLACKICE interface" -ForegroundColor Cyan
+Start-Sleep -Milliseconds 70
+Write-Host "[EVENT] 65001 - BLACKICE kernel module loaded" -ForegroundColor DarkMagenta
+Start-Sleep -Milliseconds 70
+Write-Host "[EVENT] 65002 - BLACKICE network filter attached" -ForegroundColor DarkMagenta
+Start-Sleep -Milliseconds 70
+
+
+Write-Host "────────────────────────────────────" -ForegroundColor DarkGray
+Write-Host "[!] TOTAL EVENTS LOGGED: 54" -ForegroundColor Red
+Write-Host "[!] CRITICAL ALERTS: 9" -ForegroundColor Red
+Start-Sleep 1.5
 
 Write-Host "[OK] /var/log/system.log"
 Write-Host "[OK] /etc/passwd"
 Start-Sleep 2
 
-# DRAMATIC TWIST 😄
+
 cls
 Type-Text "Relax 😄" "Cyan" 60
 Start-Sleep 1
